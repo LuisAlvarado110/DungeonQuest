@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 enum FACING {UP, DOWN, LEFT, RIGHT}
 enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, ATTACK, DEATH}
 

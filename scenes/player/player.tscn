@@ -319,6 +319,7 @@ autoplay = "neutral"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
+scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_lgqa7")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
