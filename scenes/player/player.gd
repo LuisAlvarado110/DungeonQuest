@@ -17,11 +17,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func player_input(delta: float):
-	var h_move = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-	var v_move = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
-	
+	var h_move = 0
+	var v_move = 0
+	if !is_attacking:
+		h_move = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+		v_move = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
 	velocity.x = move_spd * h_move * delta
 	velocity.y = move_spd * v_move * delta
+	if (h_move != 0 and v_move != 0):
+		velocity /= sqrt(2)
 	
 	if velocity.y != 0:
 		if velocity.y > 0: facing_direction = FACING.DOWN
@@ -31,26 +35,26 @@ func player_input(delta: float):
 		else: facing_direction = FACING.LEFT
 	
 	if Input.is_action_just_pressed("attack"):
-		is_attacking = true
-	
-	if (h_move != 0 and v_move != 0):
-		velocity /= sqrt(2)
+		attack()
+
+func attack():
+	is_attacking = true;
+	set_state(PLAYER_STATE.ATTACK)
 
 func calculate_state():
-	if velocity.length() != 0:
-		print("MOVING")
-		match facing_direction:
-			FACING.UP:
-				set_state(PLAYER_STATE.WALK_UP)
-			FACING.DOWN:
-				set_state(PLAYER_STATE.WALK_DOWN)
-			FACING.LEFT:
-				set_state(PLAYER_STATE.WALK_LEFT)
-			FACING.RIGHT:
-				set_state(PLAYER_STATE.WALK_RIGHT)
-	else:
-		set_state(PLAYER_STATE.IDLE)
-		print("IDLE")
+	if !is_attacking:
+		if velocity.length() != 0:
+			match facing_direction:
+				FACING.UP:
+					set_state(PLAYER_STATE.WALK_UP)
+				FACING.DOWN:
+					set_state(PLAYER_STATE.WALK_DOWN)
+				FACING.LEFT:
+					set_state(PLAYER_STATE.WALK_LEFT)
+				FACING.RIGHT:
+					set_state(PLAYER_STATE.WALK_RIGHT)
+		else:
+			set_state(PLAYER_STATE.IDLE)
 
 func set_state(new_state: PLAYER_STATE):
 	if (new_state != current_state):
@@ -67,7 +71,7 @@ func set_state(new_state: PLAYER_STATE):
 			PLAYER_STATE.WALK_RIGHT:
 				set_walk_animation()
 			PLAYER_STATE.ATTACK:
-				pass
+				set_attack_animation()
 
 func set_idle_animation():
 	anim_sprite2d.play("neutral")
@@ -93,3 +97,24 @@ func set_walk_animation():
 		FACING.RIGHT:
 			anim_sprite2d.play("walk_side")
 			anim_sprite2d.flip_h = false;
+
+func set_attack_animation():
+	match facing_direction:
+		FACING.UP:
+			anim_sprite2d.play("attack_up")
+		FACING.DOWN:
+			anim_sprite2d.play("attack_down")
+		FACING.LEFT:
+			anim_sprite2d.play("attack_side")
+			anim_sprite2d.flip_h = true;
+		FACING.RIGHT:
+			anim_sprite2d.play("attack_side")
+			anim_sprite2d.flip_h = false;
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if anim_sprite2d.animation in ["attack_up", "attack_side", "attack_down"]:
+		reset_state()
+
+func reset_state():
+	set_state(PLAYER_STATE.IDLE)
+	is_attacking = false 
