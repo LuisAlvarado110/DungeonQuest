@@ -321,6 +321,8 @@ script = ExtResource("1_p47bc")
 sprite_frames = SubResource("SpriteFrames_75vfm")
 animation = &"attack_up"
 autoplay = "neutral"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -332,17 +334,29 @@ shape = SubResource("RectangleShape2D_lgqa7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackUp"]
 position = Vector2(0, -14)
 shape = SubResource("CapsuleShape2D_qek5x")
+debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="AtackDown" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackDown"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qek5x")
+debug_color = Color(0.995463, 0, 0.20479, 0.42)
 
 [node name="AtackLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackLeft"]
+position = Vector2(15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qek5x")
+debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="AtackRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackRight"]
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_qek5x")
+debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
