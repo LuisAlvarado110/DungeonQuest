@@ -90,7 +90,7 @@ script = ExtResource("1_nknsj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_cgliw")
 animation = &"idle"
-frame_progress = 0.857653
+frame_progress = 0.472826
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
