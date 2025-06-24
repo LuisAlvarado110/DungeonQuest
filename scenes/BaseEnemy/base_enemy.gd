@@ -30,6 +30,7 @@ func _ready():
 
 func make_invencible():
 	hitbox.monitoring = false
+	hitbox.monitorable = false
 
 func receive_attack():
 	previous_state = current_state
@@ -48,15 +49,20 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			queue_free()
 
 func _on_invincible_timer_timeout() -> void: #funcion que reactiva la hitbox del enemigo despues de la inv
-	hitbox.monitoring = false
+	hitbox.monitoring = true
+	hitbox.monitorable = true
+	print("no invisible")
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void: #funcion para cuando un ataque del jugador entre en el area del enemigo
 	hp -= player_ref.strenght
+	print("enemigo hit")
 	call_deferred("make_invencible")
 	if hp <= 0: #cuando la vida llegue a 0
+		print("enemigo muerto")
 		current_state = ENEMY_STATES.DEATH
 		anim_sprite2d.play("death")
 		velocity = Vector2.ZERO
 	else: #cuando el enemigo aun tenga vida
-		call_deferred(receive_attack())
+		print("invencible")
+		call_deferred("receive_attack")

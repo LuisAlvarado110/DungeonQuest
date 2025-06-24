@@ -330,6 +330,10 @@ scale = Vector2(0.95, 0.95)
 shape = SubResource("RectangleShape2D_lgqa7")
 
 [node name="AtackUp" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackUp"]
 position = Vector2(0, -14)
@@ -337,25 +341,37 @@ shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="AtackDown" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackDown"]
-position = Vector2(-15, 0)
-rotation = 1.5708
+position = Vector2(0, 15)
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(0.995463, 0, 0.20479, 0.42)
 
 [node name="AtackLeft" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackLeft"]
-position = Vector2(15, 0)
+position = Vector2(-15, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
 [node name="AtackRight" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AtackRight"]
-position = Vector2(0, 15)
+position = Vector2(15, 4)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qek5x")
 debug_color = Color(0.996078, 0, 0.203922, 0.419608)
 
