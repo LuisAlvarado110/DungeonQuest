@@ -7,7 +7,10 @@ enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, ATTACK, DEAT
 
 @onready var anim_sprite2d = $AnimatedSprite2D
 
-@export var move_spd = 15000;
+@export var move_spd = 15000
+@export var hp: int = 10
+@export var strenght: int = 2
+
 var facing_direction: FACING = FACING.DOWN
 var current_state: PLAYER_STATE = PLAYER_STATE.IDLE
 var is_moving: bool = false
