@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name BaseEnemy
 
-enum ENEMY_STATES {IDLE, RUN, ATTACK, HIT, DEATH}
+enum ENEMY_STATES {PATROL, FOLLOWING_PLAYER, RETURNING, HIT, DEATH}
 
 @export var hp: int = 5
 @export var damage: int = 1
@@ -17,9 +17,8 @@ enum ENEMY_STATES {IDLE, RUN, ATTACK, HIT, DEATH}
 @onready var invicible_timer : Timer = $InvincibleTimer
 
 var previous_state: ENEMY_STATES
-var direction: Vector2
 
-var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
+var current_state: ENEMY_STATES = ENEMY_STATES.PATROL:
 	get:
 		return current_state
 	set(new_state): 
@@ -28,33 +27,6 @@ var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
 
 func _ready(): 
 	player_ref = get_tree().get_nodes_in_group("player")[0]
-
-func _physics_process(delta: float) -> void:
-	move_and_slide()
-	match current_state:
-		ENEMY_STATES.IDLE:
-			anim_sprite2d.play("idle")
-			print("IDLE")
-		ENEMY_STATES.RUN:
-			print("RUN")
-		ENEMY_STATES.ATTACK:
-			print("ATTACK")
-		ENEMY_STATES.HIT:
-			anim_sprite2d.play("hit")
-			print("HIT")
-		ENEMY_STATES.DEATH:
-			anim_sprite2d.play("death")
-			print("DEATH")
-	
-	
-	velocity = delta * movement_speed * direction
-	flip_sprite()
-
-func flip_sprite():
-	if velocity.x > 0:
-		anim_sprite2d.flip_h = false 
-	else:
-		anim_sprite2d.flip_h = true
 
 func make_invencible():
 	hitbox.monitoring = false
@@ -69,18 +41,18 @@ func receive_attack():
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1),0.25)
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,0,0),0.25)
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1),0.25)
+	current_state = previous_state
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	match anim_sprite2d.animation:
 		"death": #cuando la animacion llamada death termine los enemigos desapareceran
 			queue_free()
-		"hit":
-			current_state = previous_state
 
 func _on_invincible_timer_timeout() -> void: #funcion que reactiva la hitbox del enemigo despues de la inv
 	hitbox.monitoring = true
 	hitbox.monitorable = true
 	print("no invisible")
+
 
 func _on_hit_box_area_entered(area: Area2D) -> void: #funcion para cuando un ataque del jugador entre en el area del enemigo
 	hp -= player_ref.strenght
@@ -89,14 +61,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void: #funcion para cuando un ata
 	if hp <= 0: #cuando la vida llegue a 0
 		print("enemigo muerto")
 		current_state = ENEMY_STATES.DEATH
+		anim_sprite2d.play("death")
 		velocity = Vector2.ZERO
 	else: #cuando el enemigo aun tenga vida
 		print("invencible")
 		call_deferred("receive_attack")
-
-
-
-
-func _on_detection_area_body_entered(body: Node2D) -> void:
-	print("jugador detectado")
-	current_state = ENEMY_STATES.RUN
