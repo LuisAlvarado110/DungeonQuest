@@ -25,6 +25,11 @@ var is_attacking: bool = false
 
 func _ready() -> void:
 	reset_state()
+	NavigationManager.on_trigger_player_spawn.connect(on_spawn)
+
+func on_spawn(position: Vector2, direction: String):
+	global_position = position
+	print(direction)
 
 func _physics_process(delta: float) -> void:
 	player_input(delta)
@@ -64,7 +69,7 @@ func attack():
 func calculate_state():
 	if !is_attacking:
 		if velocity.length() != 0:
-			print("Velocidad: ", velocity.length())
+			#print("Velocidad: ", velocity.length())
 			match facing_direction:
 				FACING.UP:
 					set_state(PLAYER_STATE.RUN_UP if is_running else PLAYER_STATE.WALK_UP)

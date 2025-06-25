@@ -449,7 +449,6 @@ texture = ExtResource("4_5l7yq")
 9:7/0 = 0
 
 [resource]
-resource_local_to_scene = true
 resource_name = "Zelda"
 uv_clipping = true
 physics_layer_0/collision_layer = 1
