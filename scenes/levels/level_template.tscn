@@ -500,7 +500,7 @@ rendering_quadrant_size = 64
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_gr3xe")]
 unique_name_in_owner = true
-position = Vector2(528, 988)
+position = Vector2(121, 118)
 scale = Vector2(4, 4)
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
