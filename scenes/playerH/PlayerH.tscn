@@ -1082,8 +1082,7 @@ size = Vector2(39, 76)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gdr1c")
-animation = &"idle_down"
-frame_progress = 0.820006
+animation = &"walk_up"
 
 [node name="Area2D" type="Area2D" parent="."]
 

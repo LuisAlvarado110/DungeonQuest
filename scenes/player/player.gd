@@ -3,7 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 enum FACING {UP, DOWN, LEFT, RIGHT}
-enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, ATTACK, DEATH}
+enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT,
+RUN_UP, RUN_DOWN, RUN_LEFT, RUN_RIGHT, ATTACK, DEATH}
 
 @onready var anim_sprite2d = $AnimatedSprite2D
 @onready var attack_areaUP : Area2D = $AtackUp
@@ -11,6 +12,7 @@ enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, ATTACK, DEAT
 @onready var attack_areaLEFT : Area2D = $AtackLeft
 @onready var attack_areaRIGHT : Area2D = $AtackRight
 
+@export var run_spd = 1
 @export var move_spd = 15000
 @export var hp: int = 10
 @export var strenght: int = 2
@@ -18,6 +20,7 @@ enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT, ATTACK, DEAT
 var facing_direction: FACING = FACING.DOWN
 var current_state: PLAYER_STATE = PLAYER_STATE.IDLE
 var is_moving: bool = false
+var is_running: bool = false
 var is_attacking: bool = false
 
 func _ready() -> void:
@@ -31,11 +34,16 @@ func _physics_process(delta: float) -> void:
 func player_input(delta: float):
 	var h_move = 0
 	var v_move = 0
+	
 	if !is_attacking:
 		h_move = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 		v_move = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
-	velocity.x = move_spd * h_move * delta
-	velocity.y = move_spd * v_move * delta
+	
+	is_running = Input.is_action_pressed("run")
+	run_spd = 2.0 if(is_running) else 1.0
+	
+	velocity.x = move_spd * h_move * delta * run_spd
+	velocity.y = move_spd * v_move * delta * run_spd
 	if (h_move != 0 and v_move != 0):
 		velocity /= sqrt(2)
 	
@@ -56,15 +64,16 @@ func attack():
 func calculate_state():
 	if !is_attacking:
 		if velocity.length() != 0:
+			print("Velocidad: ", velocity.length())
 			match facing_direction:
 				FACING.UP:
-					set_state(PLAYER_STATE.WALK_UP)
+					set_state(PLAYER_STATE.RUN_UP if is_running else PLAYER_STATE.WALK_UP)
 				FACING.DOWN:
-					set_state(PLAYER_STATE.WALK_DOWN)
+					set_state(PLAYER_STATE.RUN_DOWN if is_running else PLAYER_STATE.WALK_DOWN)
 				FACING.LEFT:
-					set_state(PLAYER_STATE.WALK_LEFT)
+					set_state(PLAYER_STATE.RUN_LEFT if is_running else PLAYER_STATE.WALK_LEFT)
 				FACING.RIGHT:
-					set_state(PLAYER_STATE.WALK_RIGHT)
+					set_state(PLAYER_STATE.RUN_RIGHT if is_running else PLAYER_STATE.WALK_RIGHT)
 		else:
 			set_state(PLAYER_STATE.IDLE)
 
@@ -82,20 +91,42 @@ func set_state(new_state: PLAYER_STATE):
 				set_walk_animation()
 			PLAYER_STATE.WALK_RIGHT:
 				set_walk_animation()
+			PLAYER_STATE.RUN_UP:
+				set_run_animation()
+			PLAYER_STATE.RUN_DOWN:
+				set_run_animation()
+			PLAYER_STATE.RUN_LEFT:
+				set_run_animation()
+			PLAYER_STATE.RUN_RIGHT:
+				set_run_animation()
 			PLAYER_STATE.ATTACK:
 				set_attack_animation()
 
 func set_idle_animation():
-	anim_sprite2d.play("neutral")
 	match facing_direction:
 		FACING.UP:
-			anim_sprite2d.set_frame_and_progress(0,0.0)
+			anim_sprite2d.play("idle_up")
 		FACING.DOWN:
-			anim_sprite2d.set_frame_and_progress(1,0.0)
+			anim_sprite2d.play("idle_down")
 		FACING.LEFT:
-			anim_sprite2d.set_frame_and_progress(3,0.0)
+			anim_sprite2d.play("idle_side")
+			anim_sprite2d.flip_h = true;
 		FACING.RIGHT:
-			anim_sprite2d.set_frame_and_progress(3,0.0)
+			anim_sprite2d.play("idle_side")
+			anim_sprite2d.flip_h = false;
+
+func set_run_animation():
+	match facing_direction:
+		FACING.UP:
+			anim_sprite2d.play("run_up")
+		FACING.DOWN:
+			anim_sprite2d.play("run_down")
+		FACING.LEFT:
+			anim_sprite2d.play("run_side")
+			anim_sprite2d.flip_h = true;
+		FACING.RIGHT:
+			anim_sprite2d.play("run_side")
+			anim_sprite2d.flip_h = false;
 
 func set_walk_animation():
 	match facing_direction:
@@ -135,10 +166,6 @@ func set_attack_animation():
 			anim_sprite2d.play("attack_side")
 			anim_sprite2d.flip_h = false;
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	if anim_sprite2d.animation in ["attack_up", "attack_side", "attack_down"]:
-		reset_state()
-
 func reset_state():
 	set_state(PLAYER_STATE.IDLE)
 	attack_areaDOWN.monitoring = false
@@ -157,3 +184,8 @@ func reset_state():
 	attack_areaRIGHT.visible = false
 	
 	is_attacking = false 
+
+
+func _on_animation_attack_finished() -> void:
+	if anim_sprite2d.animation in ["attack_up", "attack_side", "attack_down"]:
+		reset_state()
