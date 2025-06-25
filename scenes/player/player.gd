@@ -55,7 +55,7 @@ func player_input(delta: float):
 		else: facing_direction = FACING.LEFT
 	
 	if Input.is_action_just_pressed("attack"):
-		attack()
+		pass#attack()
 
 func attack():
 	is_attacking = true;
