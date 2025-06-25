@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2h118hrmb774"]
+
+[ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_ksju7"]
+
+[sub_resource type="TileSet" id="TileSet_6iamk"]
+
+[node name="Lobby" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("1_ksju7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_6iamk")

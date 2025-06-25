@@ -509,6 +509,5 @@ script = ExtResource("4_ds0u5")
 player = NodePath("../Player")
 
 [node name="BaseEnemy" parent="." instance=ExtResource("8_j81xe")]
-visible = false
 position = Vector2(568, 325)
 scale = Vector2(5, 5)
