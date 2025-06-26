@@ -35,6 +35,7 @@ var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
 func _ready(): 
 	player_ref = get_tree().get_nodes_in_group("player")[0]
 
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	#estas 3 lineas se encargan de revisar si hay cuerpos dentro del area de deteccion
@@ -60,13 +61,10 @@ func _physics_process(delta: float) -> void:
 		ENEMY_STATES.ATTACK:
 			anim_sprite2d.flip_h = player_ref.global_position.x < global_position.x
 			anim_sprite2d.play("attack")
-			print("ATTACK")
 		ENEMY_STATES.HIT:
 			anim_sprite2d.play("hit")
-			print("HIT")
 		ENEMY_STATES.DEATH:
 			anim_sprite2d.play("death")
-			print("DEATH")
 	
 	if !invicible_timer.is_stopped() or current_state == ENEMY_STATES.ATTACK:
 		direction = Vector2.ZERO
@@ -78,6 +76,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"death": #cuando la animacion llamada death termine los enemigos desapareceran
 			queue_free()
 		"attack":
+			print("ataque terminado")
 			attack_timer.start()
 			can_attack = false
 			current_state = ENEMY_STATES.RUN
@@ -89,16 +88,12 @@ func flip_sprite():
 	else:
 		anim_sprite2d.flip_h = true
 
-
-
 func _on_idle_timer_timeout() -> void:
 	anim_sprite2d.flip_h = !anim_sprite2d.flip_h
 	print("Girar")
 
 func reset_states():
 	can_attack = true
-
-
 
 #endregion
 
