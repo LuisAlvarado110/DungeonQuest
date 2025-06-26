@@ -1,11 +1,12 @@
 extends Node2D
 
-@onready var door_w: Door = $Door_W
-@onready var door_e: Door = $Door_E
+@onready var door_s: Door = $Door_S
+@onready var doors_tml: TileMapLayer = $Doors
 
 func _ready() -> void:
-	door_e.destination_level_tag = GameManager.spawn_room
-	door_w.destination_level_tag = GameManager.spawn_room
+	doors_tml.enabled = false
+	door_s.destination_level_tag = GameManager.spawn_room
+	door_s.destination_door_tag = "N"
 	if NavigationManager.spawn_door_tag != null:
 		on_level_spawn(NavigationManager.spawn_door_tag)
 
