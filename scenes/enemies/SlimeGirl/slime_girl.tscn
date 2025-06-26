@@ -426,7 +426,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pc0ro")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -648,7 +648,7 @@ script = ExtResource("2_33alk")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_istys")
-animation = &"attack"
+animation = &"transition"
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false

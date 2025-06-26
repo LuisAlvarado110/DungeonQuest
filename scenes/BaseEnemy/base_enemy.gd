@@ -78,7 +78,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"attack":
 			print("ataque terminado")
 			attack_timer.start()
-			can_attack = false
+			can_attack = true
 			current_state = ENEMY_STATES.RUN
 
 #region funciones encargadas de solucionar detalles
@@ -103,7 +103,7 @@ func _on_invincible_timer_timeout() -> void: #funcion que reactiva la hitbox del
 	hitbox.monitoring = true
 	hitbox.monitorable = true
 	if hp > 0:
-		current_state = previous_state
+		current_state = ENEMY_STATES.RUN
 	print("no invisible")
 
 func make_invencible():
