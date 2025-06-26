@@ -4,17 +4,22 @@ class_name Player
 
 enum FACING {UP, DOWN, LEFT, RIGHT}
 enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT,
-RUN_UP, RUN_DOWN, RUN_LEFT, RUN_RIGHT, ATTACK, DEATH}
+				   RUN_UP, RUN_DOWN, RUN_LEFT, RUN_RIGHT, 
+				   ATTACK_UP, ATTACK_DOWN, ATTACK_LEFT, ATTACK_RIGHT, DEATH, HIT}
 
+@onready var anim_sword = $%Animated_sword
+@onready var sword_marker = $Sword
 @onready var anim_sprite2d = $AnimatedSprite2D
 @onready var attack_areaUP : Area2D = $AtackUp
 @onready var attack_areaDOWN : Area2D = $AtackDown
 @onready var attack_areaLEFT : Area2D = $AtackLeft
 @onready var attack_areaRIGHT : Area2D = $AtackRight
+@onready var hitbox: Area2D = $HitBox
+@onready var invincible_timer = $InvincibleTimer
 
 @export var run_spd = 1
-@export var move_spd = 15000
-@export var hp: int = 10
+@export var move_spd = 10000
+@export var hp: int = 2
 @export var strenght: int = 2
 
 var facing_direction: FACING = FACING.DOWN
@@ -26,10 +31,12 @@ var is_attacking: bool = false
 func _ready() -> void:
 	reset_state()
 	NavigationManager.on_trigger_player_spawn.connect(on_spawn)
+	anim_sword.connect("animation_finished", Callable(self, "_on_sword_animation_finished"))
+
 
 func on_spawn(position: Vector2, direction: String):
 	global_position = position
-	print(direction)
+	#print(direction)
 
 func _physics_process(delta: float) -> void:
 	player_input(delta)
@@ -60,16 +67,26 @@ func player_input(delta: float):
 		else: facing_direction = FACING.LEFT
 	
 	if Input.is_action_just_pressed("attack"):
-		pass#attack()
+		take_dmg()
+		attack()
 
 func attack():
 	is_attacking = true;
-	set_state(PLAYER_STATE.ATTACK)
+	calculate_state()
 
 func calculate_state():
-	if !is_attacking:
+	if is_attacking:
+		match facing_direction:
+			FACING.UP:
+				set_state(PLAYER_STATE.ATTACK_UP)
+			FACING.DOWN:
+				set_state(PLAYER_STATE.ATTACK_DOWN)
+			FACING.LEFT:
+				set_state(PLAYER_STATE.ATTACK_LEFT)
+			FACING.RIGHT:
+				set_state(PLAYER_STATE.ATTACK_RIGHT)
+	else:
 		if velocity.length() != 0:
-			#print("Velocidad: ", velocity.length())
 			match facing_direction:
 				FACING.UP:
 					set_state(PLAYER_STATE.RUN_UP if is_running else PLAYER_STATE.WALK_UP)
@@ -104,8 +121,18 @@ func set_state(new_state: PLAYER_STATE):
 				set_run_animation()
 			PLAYER_STATE.RUN_RIGHT:
 				set_run_animation()
-			PLAYER_STATE.ATTACK:
+			PLAYER_STATE.ATTACK_UP:
 				set_attack_animation()
+			PLAYER_STATE.ATTACK_DOWN:
+				set_attack_animation()
+			PLAYER_STATE.ATTACK_LEFT:
+				set_attack_animation()
+			PLAYER_STATE.ATTACK_RIGHT:
+				set_attack_animation()
+			PLAYER_STATE.HIT:
+				take_dmg()
+			PLAYER_STATE.DEATH:
+				death()
 
 func set_idle_animation():
 	match facing_direction:
@@ -149,27 +176,35 @@ func set_walk_animation():
 func set_attack_animation():
 	match facing_direction:
 		FACING.UP:
+			sword_marker.position = Vector2(0, -40)
 			attack_areaUP.monitoring = true
 			attack_areaUP.monitorable = true
 			attack_areaUP.visible = true
-			anim_sprite2d.play("attack_up")
+			anim_sword.play("sword_attack_up")
+			print("Atacando arriba")
 		FACING.DOWN:
+			sword_marker.position = Vector2(0, 40)
 			attack_areaDOWN.monitoring = true
 			attack_areaDOWN.monitorable = true
 			attack_areaDOWN.visible = true
-			anim_sprite2d.play("attack_down")
+			anim_sword.play("sword_attack_down")
+			print("Atacando abajo")
 		FACING.LEFT:
+			sword_marker.position = Vector2(-30, 0)
 			attack_areaLEFT.monitoring = true
 			attack_areaLEFT.monitorable = true
 			attack_areaLEFT.visible = true
-			anim_sprite2d.play("attack_side")
-			anim_sprite2d.flip_h = true;
+			anim_sword.play("sword_attack_side")
+			anim_sword.flip_h = true;
+			print("Atacando izquierda")
 		FACING.RIGHT:
+			sword_marker.position = Vector2(30, 0)
 			attack_areaRIGHT.monitoring = true
 			attack_areaRIGHT.monitorable = true
 			attack_areaRIGHT.visible = true
-			anim_sprite2d.play("attack_side")
-			anim_sprite2d.flip_h = false;
+			anim_sword.play("sword_attack_side")
+			anim_sword.flip_h = false;
+			print("Atacando derecha")
 
 func reset_state():
 	set_state(PLAYER_STATE.IDLE)
@@ -190,7 +225,43 @@ func reset_state():
 	
 	is_attacking = false 
 
-
-func _on_animation_attack_finished() -> void:
-	if anim_sprite2d.animation in ["attack_up", "attack_side", "attack_down"]:
+func _on_sword_animation_finished() -> void:
+	if anim_sword.animation.begins_with("sword_attack"):
+		#print("Fin animación de ataque:", anim_sword.animation)
 		reset_state()
+	#if anim_sprite2d.animation == "death":
+	#	queue_free()
+
+func take_dmg():
+	hp-= 1 #enemy_ref.strength
+	
+	#hitbox.monitoring = false
+	if hp <= 0:
+		print("Muerta")
+		anim_sprite2d.play("death")
+		velocity = Vector2.ZERO
+		set_state(PLAYER_STATE.DEATH)
+		#hitbox.monitorable = false
+	else:
+		set_state(PLAYER_STATE.HIT)
+		set_hit_animation()
+	
+func death():
+	pass #queue_free()
+
+func set_hit_animation():
+	var tween = create_tween()
+	invincible_timer.start()
+	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,0,0),0.25)
+	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1),0.25)
+	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,0,0),0.25)
+	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1),0.25)
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+
+	pass # Replace with function body.
+
+
+func _on_invincible_timer_timeout() -> void:
+	set_state(PLAYER_STATE.HIT)
+	#hitbox.monitoring = true
