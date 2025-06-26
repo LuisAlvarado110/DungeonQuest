@@ -14,7 +14,7 @@ enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT,
 @onready var attack_areaDOWN : Area2D = $AtackDown
 @onready var attack_areaLEFT : Area2D = $AtackLeft
 @onready var attack_areaRIGHT : Area2D = $AtackRight
-@onready var hitbox: Area2D = $HitBox
+@onready var hitbox: Area2D = $Hitbox
 @onready var invincible_timer = $InvincibleTimer
 
 @export var run_spd = 1
@@ -27,9 +27,12 @@ var current_state: PLAYER_STATE = PLAYER_STATE.IDLE
 var is_moving: bool = false
 var is_running: bool = false
 var is_attacking: bool = false
+var is_dead: bool = false
 
 func _ready() -> void:
 	reset_state()
+	print("Hitbox en _ready:", hitbox)
+	anim_sprite2d.play("idle_down")
 	NavigationManager.on_trigger_player_spawn.connect(on_spawn)
 	anim_sword.connect("animation_finished", Callable(self, "_on_sword_animation_finished"))
 
@@ -40,12 +43,16 @@ func on_spawn(position: Vector2, direction: String):
 
 func _physics_process(delta: float) -> void:
 	player_input(delta)
-	calculate_state()
-	move_and_slide()
+	if !is_dead:
+		calculate_state()
+		move_and_slide()
 
 func player_input(delta: float):
 	var h_move = 0
 	var v_move = 0
+	
+	if is_dead:
+		return
 	
 	if !is_attacking:
 		h_move = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -67,8 +74,8 @@ func player_input(delta: float):
 		else: facing_direction = FACING.LEFT
 	
 	if Input.is_action_just_pressed("attack"):
-		take_dmg()
 		attack()
+		take_dmg()
 
 func attack():
 	is_attacking = true;
@@ -100,6 +107,8 @@ func calculate_state():
 			set_state(PLAYER_STATE.IDLE)
 
 func set_state(new_state: PLAYER_STATE):
+	if is_dead and new_state != PLAYER_STATE.DEATH:
+		return
 	if (new_state != current_state):
 		current_state = new_state
 		match current_state:
@@ -207,6 +216,8 @@ func set_attack_animation():
 			print("Atacando derecha")
 
 func reset_state():
+	if is_dead:
+		return
 	set_state(PLAYER_STATE.IDLE)
 	attack_areaDOWN.monitoring = false
 	attack_areaUP.monitoring = false
@@ -233,21 +244,25 @@ func _on_sword_animation_finished() -> void:
 	#	queue_free()
 
 func take_dmg():
+	if is_dead:
+		return
 	hp-= 1 #enemy_ref.strength
 	
 	#hitbox.monitoring = false
 	if hp <= 0:
 		print("Muerta")
-		anim_sprite2d.play("death")
-		velocity = Vector2.ZERO
 		set_state(PLAYER_STATE.DEATH)
 		#hitbox.monitorable = false
 	else:
-		set_state(PLAYER_STATE.HIT)
 		set_hit_animation()
 	
 func death():
-	pass #queue_free()
+	anim_sprite2d.play("death")
+	velocity = Vector2.ZERO
+	is_dead = true
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+	
 
 func set_hit_animation():
 	var tween = create_tween()
@@ -258,10 +273,9 @@ func set_hit_animation():
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,1,1),0.25)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-
-	pass # Replace with function body.
+	set_state(PLAYER_STATE.HIT)
 
 
 func _on_invincible_timer_timeout() -> void:
-	set_state(PLAYER_STATE.HIT)
+	reset_state()
 	#hitbox.monitoring = true

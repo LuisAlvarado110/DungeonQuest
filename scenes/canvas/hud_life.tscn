@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://jgithblteyuw"]
+
+[ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_ty56j"]
+[ext_resource type="Texture2D" uid="uid://cqrj0vfjixjdp" path="res://assets/life_hp/hp_values/HP_Value_5.png" id="1_wpfmg"]
+
+[node name="HudLife" type="CanvasLayer"]
+
+[node name="MarginContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg_hp" type="Sprite2D" parent="MarginContainer"]
+modulate = Color(0.592157, 0.592157, 0.592157, 0.231373)
+self_modulate = Color(0.517184, 0.517184, 0.517184, 1)
+position = Vector2(99, 25)
+scale = Vector2(1, 0.490741)
+texture = ExtResource("1_ty56j")
+
+[node name="SpriteHP" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(96, 21)
+texture = ExtResource("1_wpfmg")
