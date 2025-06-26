@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://duk7k8sfistd4"]
+
+[ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="1_sitkg"]
+
+[resource]
+font = ExtResource("1_sitkg")
+font_size = 126
+outline_size = 35
+outline_color = Color(0.290196, 0, 0, 1)
+shadow_size = 24
+shadow_color = Color(0, 0, 0, 0.862745)
+shadow_offset = Vector2(15, 15)

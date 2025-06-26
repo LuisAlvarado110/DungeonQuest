@@ -1,0 +1,133 @@
+[gd_scene load_steps=10 format=3 uid="uid://5cn67e2nkfsp"]
+
+[ext_resource type="Script" uid="uid://bfr0auxdy4n0" path="res://scenes/MainMenu/main_menu.gd" id="1_7j8ul"]
+[ext_resource type="Texture2D" uid="uid://c11uvd4ydndvm" path="res://assets/placeholder/menu_placeholder.png" id="1_i21gk"]
+[ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="2_r8q81"]
+[ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="3_7j8ul"]
+[ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="4_0qq82"]
+[ext_resource type="Texture2D" uid="uid://clm566llytvbh" path="res://assets/ui/button_long_hover1.png" id="5_y5ja3"]
+[ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="6_mqas3"]
+[ext_resource type="Script" uid="uid://ddcgraf2ylctx" path="res://scenes/MainMenu/lvl_gt_button.gd" id="7_0qq82"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oy0qi"]
+font = ExtResource("6_mqas3")
+font_size = 34
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7j8ul")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_i21gk")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Title Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Rogue Dungeon"
+label_settings = ExtResource("2_r8q81")
+horizontal_alignment = 1
+
+[node name="LvlGTButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("3_7j8ul")
+texture_pressed = ExtResource("4_0qq82")
+texture_hover = ExtResource("5_y5ja3")
+texture_focused = ExtResource("5_y5ja3")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("7_0qq82")
+
+[node name="Label" type="Label" parent="VBoxContainer/LvlGTButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LevelGenTesting"
+label_settings = SubResource("LabelSettings_oy0qi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LvlTempButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("3_7j8ul")
+texture_pressed = ExtResource("4_0qq82")
+texture_hover = ExtResource("5_y5ja3")
+texture_focused = ExtResource("5_y5ja3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/LvlTempButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Template"
+label_settings = SubResource("LabelSettings_oy0qi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("3_7j8ul")
+texture_pressed = ExtResource("4_0qq82")
+texture_hover = ExtResource("5_y5ja3")
+texture_focused = ExtResource("5_y5ja3")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = SubResource("LabelSettings_oy0qi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/LvlGTButton" to="." method="_on_lvl_gt_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LvlTempButton" to="." method="_on_lvl_temp_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

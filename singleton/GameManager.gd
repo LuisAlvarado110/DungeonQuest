@@ -1,5 +1,8 @@
 extends Node
 
+var lvl_tmp_scene = preload("res://scenes/levels/level_template.tscn")
+var lvl_tst = preload("res://scenes/LevelGenTesting/LevelTestingLoader.tscn")
+
 var rng = RandomNumberGenerator.new()
 var spawn_room
 var w_room #West Room
@@ -38,3 +41,13 @@ func generate_rooms():
 	s_room = south_rooms[rng.randi_range(0, south_rooms.size()-1)]
 	e_room = east_rooms[rng.randi_range(0, east_rooms.size()-1)]
 	n_room = north_rooms[rng.randi_range(0, north_rooms.size()-1)]
+
+func on_lvl_tst():
+	var game_scene
+	get_tree().change_scene_to_packed(lvl_tst)
+
+func on_lvl_tmp():
+	get_tree().change_scene_to_packed(lvl_tmp_scene)
+
+func on_exit():
+	get_tree().quit()
