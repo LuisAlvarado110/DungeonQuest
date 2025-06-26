@@ -1,16 +1,16 @@
 [gd_scene load_steps=16 format=4 uid="uid://b1fau2itdl2ut"]
 
-[ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_oinj3"]
-[ext_resource type="Texture2D" uid="uid://dc6obubfo6ql4" path="res://assets/tiles/Walls_and_floor_F1.png" id="2_7lb5u"]
-[ext_resource type="Texture2D" uid="uid://b1gqr7rf3qccd" path="res://assets/tiles/Dungeon_Autotiles_F1.png" id="3_q2i6t"]
-[ext_resource type="Texture2D" uid="uid://dy1kajecyh1x8" path="res://assets/tiles/Dungeon_Tileset_green.png" id="4_q3qup"]
-[ext_resource type="Texture2D" uid="uid://b3den7q7olwp6" path="res://assets/decoration/door's/DungeonMasterDoor_Close_0.png" id="5_cv6au"]
-[ext_resource type="Texture2D" uid="uid://cfqe1i5lgrkn4" path="res://assets/decoration/door's/Door_Close_0.png" id="6_fkxa8"]
-[ext_resource type="Texture2D" uid="uid://baoopc44csyry" path="res://assets/decoration/door's/DungeonMasterDoor_Open.png" id="7_hc2ub"]
+[ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_t0534"]
+[ext_resource type="Texture2D" uid="uid://dc6obubfo6ql4" path="res://assets/tiles/Walls_and_floor_F1.png" id="2_3fmj5"]
+[ext_resource type="Texture2D" uid="uid://b1gqr7rf3qccd" path="res://assets/tiles/Dungeon_Autotiles_F1.png" id="3_h5hy5"]
+[ext_resource type="Texture2D" uid="uid://dy1kajecyh1x8" path="res://assets/tiles/Dungeon_Tileset_green.png" id="4_l3103"]
+[ext_resource type="Texture2D" uid="uid://b3den7q7olwp6" path="res://assets/decoration/door's/DungeonMasterDoor_Close_0.png" id="5_rbku6"]
+[ext_resource type="Texture2D" uid="uid://cfqe1i5lgrkn4" path="res://assets/decoration/door's/Door_Close_0.png" id="6_237sr"]
+[ext_resource type="Texture2D" uid="uid://baoopc44csyry" path="res://assets/decoration/door's/DungeonMasterDoor_Open.png" id="7_xulko"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iey34"]
 resource_name = "WallsAndFloor_F1"
-texture = ExtResource("2_7lb5u")
+texture = ExtResource("2_3fmj5")
 3:0/0 = 0
 3:0/0/modulate = Color(0.629675, 0.629675, 0.629675, 1)
 4:0/0 = 0
@@ -212,7 +212,7 @@ texture = ExtResource("2_7lb5u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sil00"]
 resource_name = "Decorative_tile_F1"
-texture = ExtResource("3_q2i6t")
+texture = ExtResource("3_h5hy5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -373,7 +373,7 @@ texture = ExtResource("3_q2i6t")
 7:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kx0q"]
-texture = ExtResource("4_q3qup")
+texture = ExtResource("4_l3103")
 0:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
@@ -465,7 +465,7 @@ sources/1 = SubResource("TileSetAtlasSource_sil00")
 sources/3 = SubResource("TileSetAtlasSource_4kx0q")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jk7sn"]
-texture = ExtResource("5_cv6au")
+texture = ExtResource("5_rbku6")
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
@@ -521,7 +521,7 @@ texture = ExtResource("5_cv6au")
 6:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6862y"]
-texture = ExtResource("6_fkxa8")
+texture = ExtResource("6_237sr")
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
@@ -575,7 +575,7 @@ texture = ExtResource("6_fkxa8")
 6:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gaexb"]
-texture = ExtResource("7_hc2ub")
+texture = ExtResource("7_xulko")
 3:2/0 = 0
 4:2/0 = 0
 5:2/0 = 0
@@ -638,7 +638,7 @@ sources/3 = SubResource("TileSetAtlasSource_gaexb")
 [node name="black_base" type="Sprite2D" parent="."]
 position = Vector2(1728, 324)
 scale = Vector2(6, 6)
-texture = ExtResource("1_oinj3")
+texture = ExtResource("1_t0534")
 
 [node name="floor_walls" type="TileMapLayer" parent="."]
 position = Vector2(5, 39)
