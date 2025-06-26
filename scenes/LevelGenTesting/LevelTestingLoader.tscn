@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5jipcft233hp"]
+
+[ext_resource type="Script" uid="uid://d0lqj6vlboebr" path="res://scenes/LevelGenTesting/level_testing_loader.gd" id="1_wyntu"]
+
+[node name="LevelTestingLoader" type="Node2D"]
+script = ExtResource("1_wyntu")
