@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cfqe1i5lgrkn4" path="res://assets/decoration/door's/Door_Close_0.png" id="6_237sr"]
 [ext_resource type="Texture2D" uid="uid://baoopc44csyry" path="res://assets/decoration/door's/DungeonMasterDoor_Open.png" id="7_xulko"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iey34"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t0534"]
 resource_name = "WallsAndFloor_F1"
 texture = ExtResource("2_3fmj5")
 3:0/0 = 0
@@ -210,7 +210,7 @@ texture = ExtResource("2_3fmj5")
 0:9/0 = 0
 3:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sil00"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fmj5"]
 resource_name = "Decorative_tile_F1"
 texture = ExtResource("3_h5hy5")
 0:0/0 = 0
@@ -372,7 +372,7 @@ texture = ExtResource("3_h5hy5")
 6:14/0 = 0
 7:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kx0q"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h5hy5"]
 texture = ExtResource("4_l3103")
 0:0/0 = 0
 5:0/0 = 0
@@ -460,9 +460,9 @@ texture = ExtResource("4_l3103")
 [sub_resource type="TileSet" id="TileSet_y2yuw"]
 tile_offset_axis = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_iey34")
-sources/1 = SubResource("TileSetAtlasSource_sil00")
-sources/3 = SubResource("TileSetAtlasSource_4kx0q")
+sources/0 = SubResource("TileSetAtlasSource_t0534")
+sources/1 = SubResource("TileSetAtlasSource_3fmj5")
+sources/3 = SubResource("TileSetAtlasSource_h5hy5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jk7sn"]
 texture = ExtResource("5_rbku6")
