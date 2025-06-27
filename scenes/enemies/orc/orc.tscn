@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://buor4yto3semo"]
+[gd_scene load_steps=33 format=3 uid="uid://buor4yto3semo"]
 
 [ext_resource type="PackedScene" uid="uid://cvkypld6slpr4" path="res://scenes/BaseEnemy/BaseEnemy.tscn" id="1_qh741"]
 [ext_resource type="Texture2D" uid="uid://cm4gld80t336g" path="res://assets/enemies/orc/orc_F2.png" id="2_olqtf"]
@@ -187,6 +187,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_olqtf"]
+radius = 20.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60opv"]
 size = Vector2(52, 74)
 
@@ -206,16 +209,32 @@ script = ExtResource("2_rm2ht")
 sprite_frames = SubResource("SpriteFrames_p4lvs")
 animation = &"attack"
 
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_olqtf")
+
+[node name="AttackArea" parent="." index="2"]
+visible = false
+
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
 position = Vector2(39, 10)
 shape = SubResource("RectangleShape2D_60opv")
 
+[node name="DetectionArea" parent="." index="3"]
+visible = false
+
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource("CircleShape2D_hc5by")
+
+[node name="HitBox" parent="." index="4"]
+visible = false
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-0.5, 14.5)
 shape = SubResource("RectangleShape2D_pi0vc")
+
+[node name="RangeArea" parent="." index="5"]
+visible = false
 
 [node name="CollisionShape2D" parent="RangeArea" index="0"]
 position = Vector2(1, 21)

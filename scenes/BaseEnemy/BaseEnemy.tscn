@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvkypld6slpr4"]
+[gd_scene load_steps=2 format=3 uid="uid://cvkypld6slpr4"]
 
 [ext_resource type="Script" uid="uid://dxyk5wgf3mmus" path="res://scenes/BaseEnemy/base_enemy.gd" id="1_nknsj"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s4gnv"]
-radius = 12.0
 
 [node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -16,7 +13,6 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_s4gnv")
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 16

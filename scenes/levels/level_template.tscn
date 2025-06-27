@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dj0ith6ejb0bh"]
+[gd_scene load_steps=11 format=4 uid="uid://dj0ith6ejb0bh"]
 
 [ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_7hipx"]
 [ext_resource type="TileSet" uid="uid://b5hhivf3bqlf4" path="res://misc/tile_set/dungeon_tile_set.tres" id="2_4s5u3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://citq7cmjf5n66" path="res://scenes/enemies/goblin/goblin.tscn" id="6_j81xe"]
 [ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="7_ulyey"]
 [ext_resource type="PackedScene" uid="uid://cc4ddyb8u7lrj" path="res://scenes/enemies/soulHarvester/soul_harvester.tscn" id="8_j81xe"]
+[ext_resource type="PackedScene" uid="uid://byb2y7ucvkqoc" path="res://scenes/enemies/medusa/medusa.tscn" id="8_qvykx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eokde"]
 vertices = PackedVector2Array(921.031, -89.0938, 922.953, 385.961, -65.9063, 382.031, -62.0703, -98.8984)
@@ -87,10 +88,9 @@ position = Vector2(929, 778)
 position = Vector2(148, 822)
 scale = Vector2(2, 2)
 
+[node name="medusa" parent="." instance=ExtResource("8_qvykx")]
+position = Vector2(572, 193)
+
 [node name="soulHarvester" parent="." instance=ExtResource("8_j81xe")]
-position = Vector2(209, 161)
+position = Vector2(2060, 318)
 scale = Vector2(1.5, 1.5)
-hp = 5
-damage = 1
-movement_speed = 15000
-frame_attack = 0

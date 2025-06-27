@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://citq7cmjf5n66"]
+[gd_scene load_steps=36 format=3 uid="uid://citq7cmjf5n66"]
 
 [ext_resource type="PackedScene" uid="uid://cvkypld6slpr4" path="res://scenes/BaseEnemy/BaseEnemy.tscn" id="1_5wvco"]
 [ext_resource type="Script" uid="uid://5uut20xtl8o1" path="res://scenes/enemies/goblin/goblin.gd" id="2_2eio3"]
@@ -208,6 +208,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnerw"]
+radius = 13.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duw8a"]
 size = Vector2(49.75, 33)
 
@@ -229,7 +232,8 @@ animation = &"death"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 21)
+position = Vector2(1, 24)
+shape = SubResource("CircleShape2D_gnerw")
 
 [node name="AttackArea" parent="." index="2"]
 position = Vector2(1, 8)
