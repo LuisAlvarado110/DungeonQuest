@@ -1,18 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvkypld6slpr4"]
+[gd_scene load_steps=3 format=3 uid="uid://cvkypld6slpr4"]
 
 [ext_resource type="Script" uid="uid://dxyk5wgf3mmus" path="res://scenes/BaseEnemy/base_enemy.gd" id="1_nknsj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4gnv"]
 radius = 12.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k4m3p"]
-radius = 89.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bmpyl"]
-radius = 20.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe50a"]
-size = Vector2(82, 31)
 
 [node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -27,13 +18,18 @@ autoplay = "idle"
 position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_s4gnv")
 
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_k4m3p")
 debug_color = Color(0, 0.649921, 0.121582, 0.42)
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -42,7 +38,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, 11)
-shape = SubResource("CircleShape2D_bmpyl")
 debug_color = Color(0.944725, 0.175683, 0.40366, 0.42)
 
 [node name="RangeArea" type="Area2D" parent="."]
@@ -51,7 +46,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea"]
 position = Vector2(0, 11)
-shape = SubResource("RectangleShape2D_xe50a")
 debug_color = Color(0.687727, 0.494834, 0.188584, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -68,12 +62,6 @@ one_shot = true
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
-
-[node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

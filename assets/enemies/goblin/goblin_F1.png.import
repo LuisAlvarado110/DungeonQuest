@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvnlkh3lhl1lm"
-path="res://.godot/imported/EyeBall Monster-Sheet.png-ce044c5b3d6a24ae3015fdf07f50fe6e.ctex"
+uid="uid://cjrrypfox653m"
+path="res://.godot/imported/goblin_F1.png-0169b94c6a70248582228fe1ccbeabd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/eyeball/EyeBall Monster-Sheet.png"
-dest_files=["res://.godot/imported/EyeBall Monster-Sheet.png-ce044c5b3d6a24ae3015fdf07f50fe6e.ctex"]
+source_file="res://assets/enemies/goblin/goblin_F1.png"
+dest_files=["res://.godot/imported/goblin_F1.png-0169b94c6a70248582228fe1ccbeabd6.ctex"]
 
 [params]
 

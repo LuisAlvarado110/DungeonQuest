@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://c3mykdmi8vhhx"]
+[gd_scene load_steps=99 format=3 uid="uid://c3mykdmi8vhhx"]
 
 [ext_resource type="PackedScene" uid="uid://cvkypld6slpr4" path="res://scenes/BaseEnemy/BaseEnemy.tscn" id="1_xxnjm"]
 [ext_resource type="Script" uid="uid://dbwkhil64qlpt" path="res://scenes/enemies/SlimeGirl/slime_girl.gd" id="2_33alk"]
@@ -643,6 +643,18 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugpa0"]
+radius = 14.0357
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_syik6"]
+radius = 101.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rsw2p"]
+radius = 21.0238
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8necq"]
+size = Vector2(87, 20)
+
 [node name="SlimeGirl" instance=ExtResource("1_xxnjm")]
 script = ExtResource("2_33alk")
 
@@ -652,11 +664,22 @@ animation = &"attack"
 frame = 11
 frame_progress = 1.0
 
-[node name="CollisionShape2D" parent="." index="1"]
-visible = false
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(29, 11)
+shape = SubResource("CircleShape2D_ugpa0")
 
-[node name="HitBox" parent="." index="3"]
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
 visible = false
+shape = SubResource("CircleShape2D_syik6")
 
-[node name="AttackTimer" parent="." index="8"]
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_rsw2p")
+
+[node name="CollisionShape2D" parent="RangeArea" index="0"]
+position = Vector2(0.5, 11)
+shape = SubResource("RectangleShape2D_8necq")
+
+[node name="AttackTimer" parent="." index="9"]
 wait_time = 3.0
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

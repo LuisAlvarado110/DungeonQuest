@@ -2,10 +2,10 @@ extends BaseEnemy
 
 func _ready() -> void:
 	super._ready()
-	frame_attack = 7
-	damage = 2
-	movement_speed = 18000
-	hp = 10
+	frame_attack = 5
+	damage = 1
+	movement_speed = 14000
+	hp = 3
 
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if anim_sprite2d and anim_sprite2d.animation == "attack":

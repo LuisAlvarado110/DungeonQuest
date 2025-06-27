@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d3nvlkxir7mjh"]
+[gd_scene load_steps=62 format=3 uid="uid://d3nvlkxir7mjh"]
 
 [ext_resource type="PackedScene" uid="uid://cvkypld6slpr4" path="res://scenes/BaseEnemy/BaseEnemy.tscn" id="1_dn46e"]
 [ext_resource type="Texture2D" uid="uid://byt1nkvnl8s8f" path="res://assets/enemies/nightborne/NightBorne.png" id="2_bl2k2"]
@@ -406,6 +406,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2k2"]
 size = Vector2(32, 31)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bl2k2"]
+radius = 61.131
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss205"]
+size = Vector2(41, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ippao"]
+size = Vector2(82, 30)
+
 [node name="NightBorn" instance=ExtResource("1_dn46e")]
 script = ExtResource("2_ss205")
 
@@ -415,12 +424,20 @@ animation = &"attack"
 frame = 7
 frame_progress = 0.457827
 
-[node name="CollisionShape2D" parent="RangeArea" index="0"]
-position = Vector2(0, 15.5)
-
 [node name="CollisionShape2D" parent="AttackArea" index="0"]
-unique_name_in_owner = true
 position = Vector2(25, 15.5)
 shape = SubResource("RectangleShape2D_bl2k2")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_bl2k2")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+visible = false
+shape = SubResource("RectangleShape2D_ss205")
+
+[node name="CollisionShape2D" parent="RangeArea" index="0"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_ippao")
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
