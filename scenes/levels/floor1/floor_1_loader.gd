@@ -5,3 +5,4 @@ func _ready() -> void:
 	GameManager.set_spawn_room("floor1_spawn")
 	GameManager.generate_rooms()
 	NavigationManager.go_to_level(GameManager.spawn_room,"C")
+	RoomManager.restart_locks()

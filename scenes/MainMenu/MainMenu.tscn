@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://5cn67e2nkfsp"]
+[gd_scene load_steps=14 format=3 uid="uid://5cn67e2nkfsp"]
 
 [ext_resource type="Script" uid="uid://bfr0auxdy4n0" path="res://scenes/MainMenu/main_menu.gd" id="1_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://dproxh1v4dy6y" path="res://assets/background_title/title_bg.png" id="2_0qq82"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="6_mqas3"]
 [ext_resource type="Texture2D" uid="uid://d1m7op28ebpdh" path="res://assets/ui/button_long_hover2.png" id="6_yv4eq"]
 [ext_resource type="Script" uid="uid://ddcgraf2ylctx" path="res://scenes/MainMenu/lvl_gt_button.gd" id="7_0qq82"]
+[ext_resource type="AudioStream" uid="uid://buch536htvm5c" path="res://assets/sound/menu.mp3" id="12_bfo1e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oy0qi"]
 font = ExtResource("6_mqas3")
@@ -161,6 +162,10 @@ text = "Salir"
 label_settings = SubResource("LabelSettings_oy0qi")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bfo1e")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LvlGTButton" to="." method="_on_lvl_gt_button_pressed"]

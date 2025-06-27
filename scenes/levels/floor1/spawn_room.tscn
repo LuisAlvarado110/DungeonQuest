@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bpu5vxfqbaiv2"]
+[gd_scene load_steps=31 format=4 uid="uid://bpu5vxfqbaiv2"]
 
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="1_hhuo7"]
 [ext_resource type="Script" uid="uid://ddevfxv7l25t6" path="res://scenes/levels/floor1/spawn_room.gd" id="1_m242v"]
@@ -1373,6 +1373,18 @@ texture = ExtResource("12_7xs02")
 sources/0 = SubResource("TileSetAtlasSource_8an88")
 sources/4 = SubResource("TileSetAtlasSource_vdeqo")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbp01"]
+size = Vector2(115, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vien3"]
+size = Vector2(70.6667, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sacv"]
+size = Vector2(70.6667, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te2fx"]
+size = Vector2(73.3333, 25.3333)
+
 [node name="SpawnRoom" type="Node2D"]
 script = ExtResource("1_m242v")
 
@@ -1388,6 +1400,7 @@ tile_set = SubResource("TileSet_toswi")
 position = Vector2(-11, 14)
 scale = Vector2(1.4619, 1.12854)
 tile_map_data = PackedByteArray("AAAVAAEAAAABAAQAAAAVAAIAAAABAAUAAAAVAAMAAAABAAYAAAAVAAQAAAABAAcAAAAWAAEAAAACAAQAAAAWAAIAAAACAAUAAAAWAAMAAAACAAYAAAAWAAQAAAACAAcAAAAWAAUAAAACAAgAAAAXAP//AAADAAIAAAAXAAAAAAADAAMAAAAXAAEAAAADAAQAAAAXAAIAAAADAAUAAAAXAAMAAAADAAYAAAAXAAQAAAADAAcAAAAXAAUAAAADAAgAAAAXAAYAAAADAAkAAAAYAP//AAAEAAIAAAAYAAAAAAAEAAMAAAAYAAEAAAAEAAQAAAAYAAIAAAAEAAUAAAAYAAMAAAAEAAYAAAAYAAQAAAAEAAcAAAAYAAUAAAAEAAgAAAAYAAYAAAAEAAkAAAAZAP//AAAFAAIAAAAZAAAAAAAFAAMAAAAZAAEAAAAFAAQAAAAZAAIAAAAFAAUAAAAZAAMAAAAFAAYAAAAZAAQAAAAFAAcAAAAZAAUAAAAFAAgAAAAZAAYAAAAFAAkAAAAaAP//AAAGAAIAAAAaAAAAAAAGAAMAAAAaAAEAAAAGAAQAAAAaAAIAAAAGAAUAAAAaAAMAAAAGAAYAAAAaAAQAAAAGAAcAAAAaAAUAAAAGAAgAAAAaAAYAAAAGAAkAAAAbAAAAAAAHAAMAAAAbAAEAAAAHAAQAAAAbAAIAAAAHAAUAAAAbAAMAAAAHAAYAAAAbAAQAAAAHAAcAAAAbAAUAAAAHAAgAAAAcAAEAAAAIAAQAAAAcAAIAAAAIAAUAAAAcAAMAAAAIAAYAAAAcAAQAAAAIAAcAAAAdAAIAAAAJAAUAAAAdAAMAAAAJAAYAAAA=")
+enabled = false
 tile_set = SubResource("TileSet_ckrre")
 
 [node name="regular_door" type="TileMapLayer" parent="."]
@@ -1395,6 +1408,53 @@ visible = false
 position = Vector2(-1139, -632)
 scale = Vector2(2.22, 2.22)
 tile_set = SubResource("TileSet_tagxy")
+
+[node name="LockN" type="CharacterBody2D" parent="."]
+position = Vector2(576, 44)
+
+[node name="Sprite2D" type="Sprite2D" parent="LockN"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_vien3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockN"]
+position = Vector2(0, 25)
+shape = SubResource("RectangleShape2D_gbp01")
+
+[node name="LockS" type="CharacterBody2D" parent="."]
+position = Vector2(579, 670)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockS"]
+position = Vector2(1.33328, 53.3333)
+shape = SubResource("RectangleShape2D_vien3")
+
+[node name="Sprite2D" type="Sprite2D" parent="LockS"]
+texture = ExtResource("9_6sacv")
+
+[node name="LockE" type="CharacterBody2D" parent="."]
+position = Vector2(1179, 346)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockE"]
+position = Vector2(1.33333, 50.6666)
+shape = SubResource("RectangleShape2D_6sacv")
+
+[node name="Sprite2D" type="Sprite2D" parent="LockE"]
+texture = ExtResource("9_6sacv")
+
+[node name="LockW" type="CharacterBody2D" parent="."]
+position = Vector2(-31, 348)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockW"]
+position = Vector2(2, 47.3333)
+shape = SubResource("RectangleShape2D_te2fx")
+
+[node name="Sprite2D" type="Sprite2D" parent="LockW"]
+texture = ExtResource("9_6sacv")
 
 [node name="Player" parent="." instance=ExtResource("2_7a7j5")]
 position = Vector2(576, 328)
@@ -1439,6 +1499,10 @@ position = Vector2(24.5, 0.25)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_te2fx")]
+offset_left = -3.0
+offset_top = -35.0
+offset_right = -3.0
+offset_bottom = -35.0
 
 [editable path="Door_N"]
 [editable path="Door_S"]
