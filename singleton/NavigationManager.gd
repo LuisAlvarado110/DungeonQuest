@@ -28,6 +28,8 @@ func load_floor_rooms(floor: int):
 			loaded_rooms = {
 				"floor1_spawn": preload("res://scenes/levels/floor1/spawn_room.tscn"),
 				"west_1": preload("res://scenes/levels/floor1/west/floor_1_west.tscn"),
+				"west_2": preload("res://scenes/levels/floor1/west/floor_2_west.tscn"),
+				"west_3": preload("res://scenes/levels/floor1/west/floor_3_west.tscn"),
 				"east_1": preload("res://scenes/levels/floor1/east/floor1_east.tscn"),
 				"east_2": preload("res://scenes/levels/floor1/east/floor2_east.tscn"),
 				"east_3": preload("res://scenes/levels/floor1/east/floor3_east.tscn"),

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://biaspoytauuat"]
+[gd_scene load_steps=18 format=4 uid="uid://biaspoytauuat"]
 
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="1_5kpf2"]
 [ext_resource type="Script" uid="uid://clhwpdrambr81" path="res://scenes/levels/room_doors_scripts/north_rooms.gd" id="1_b3x80"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="8_05u23"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="9_k1o0w"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="11_fuged"]
+[ext_resource type="PackedScene" uid="uid://d3nvlkxir7mjh" path="res://scenes/enemies/NightBorn/night_born.tscn" id="12_m140s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnaqf"]
 resource_name = "WallsAndFloor_F1"
@@ -468,6 +469,11 @@ sources/0 = SubResource("TileSetAtlasSource_lnaqf")
 sources/1 = SubResource("TileSetAtlasSource_p1xfo")
 sources/3 = SubResource("TileSetAtlasSource_sfhuk")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_m140s"]
+vertices = PackedVector2Array(1078, 558, 74, 558, 74, 130, 1078, 130)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(64, 120, 64, 568, 1088, 568, 1088, 120)])
+
 [node name="Floor1North" type="Node2D"]
 script = ExtResource("1_b3x80")
 
@@ -486,7 +492,7 @@ tile_map_data = PackedByteArray("AAAAAAoAAAAEAAYAAAAAAAsAAAAFAAYAAAABAAoAAAAEAAY
 tile_set = ExtResource("5_wlku1")
 
 [node name="Player" parent="." instance=ExtResource("6_onjx8")]
-position = Vector2(550, 329)
+position = Vector2(568, 528)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.5, 0.5, 0.5, 1)
@@ -496,6 +502,9 @@ texture = ExtResource("7_nuly2")
 
 [node name="CameraPlayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_05u23")]
 player = NodePath("../Player")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_m140s")
 
 [node name="Door_S" parent="." instance=ExtResource("9_k1o0w")]
 position = Vector2(575, 693)
@@ -507,5 +516,9 @@ position = Vector2(-0.999989, -28.6)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_fuged")]
+
+[node name="NightBorn" parent="." instance=ExtResource("12_m140s")]
+position = Vector2(568, 136)
+scale = Vector2(4, 4)
 
 [editable path="Door_S"]

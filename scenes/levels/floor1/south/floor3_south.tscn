@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cnyfrm736ecgv" path="res://assets/tiles/0x72_DungeonTilesetII_v1.7.png" id="8_ck4nl"]
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="9_51p3r"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="10_n7ypb"]
-[ext_resource type="PackedScene" uid="uid://brc84jxrvkmsa" path="res://scenes/enemies/eyeball/eyeball.tscn" id="11_6pq5o"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/eyeball/eyeball.tscn" id="11_6pq5o"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="13_m2ufd"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="14_37wso"]
 
