@@ -248,6 +248,7 @@ func take_dmg(damage: int):
 	GameManager.update_hp_player(hp)
 
 	if hp <= 0:
+		GameManager.update_hp_player(0)
 		print("Muerta")
 		set_state(PLAYER_STATE.DEATH)
 	else:
