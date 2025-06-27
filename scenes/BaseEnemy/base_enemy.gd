@@ -84,7 +84,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"attack":
 			print("ataque terminado")
 			attack_timer.start()
-			reset_attack()
+			call_deferred("reset_attack")
 
 #region funciones encargadas de detalles esteticos
 func flip_sprite():

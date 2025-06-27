@@ -7,6 +7,11 @@ func _ready() -> void:
 	movement_speed = 18000
 	hp = 10
 
+func _process(delta: float) -> void:
+	var bodies_in_area = range_area.has_overlapping_bodies()
+	if bodies_in_area and !can_attack:
+		velocity = Vector2.ZERO
+
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if anim_sprite2d and anim_sprite2d.animation == "attack":
 		if anim_sprite2d.frame == frame_attack:

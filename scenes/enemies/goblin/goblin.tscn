@@ -148,7 +148,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -228,7 +228,7 @@ script = ExtResource("2_2eio3")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_cbhg7")
-animation = &"death"
+animation = &"attack"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -254,3 +254,5 @@ shape = SubResource("RectangleShape2D_gnerw")
 [node name="CollisionShape2D" parent="RangeArea" index="0"]
 position = Vector2(1, 27)
 shape = SubResource("RectangleShape2D_pcsqt")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

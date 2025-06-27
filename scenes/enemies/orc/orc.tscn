@@ -110,7 +110,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -239,3 +239,5 @@ visible = false
 [node name="CollisionShape2D" parent="RangeArea" index="0"]
 position = Vector2(1, 21)
 shape = SubResource("RectangleShape2D_76j41")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
