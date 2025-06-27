@@ -1,17 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyghbi5ugyjch"]
+[gd_scene load_steps=11 format=3 uid="uid://dyghbi5ugyjch"]
 
 [ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_cyfjy"]
 [ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="1_s5d2r"]
+[ext_resource type="Script" uid="uid://chxsinydejeuv" path="res://scenes/canvas/pause_hud.gd" id="1_xhen4"]
 [ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="2_cyfjy"]
+[ext_resource type="Shader" path="res://scenes/canvas/PauseMenu.gdshader" id="2_xhen4"]
 [ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="3_xhen4"]
 [ext_resource type="Texture2D" uid="uid://clm566llytvbh" path="res://assets/ui/button_long_hover1.png" id="4_55dxe"]
 [ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="6_ng1e1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55dxe"]
+shader = ExtResource("2_xhen4")
+shader_parameter/lod = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_h6nwc"]
 font = ExtResource("6_ng1e1")
 font_size = 34
 
 [node name="PauseHud" type="CanvasLayer"]
+script = ExtResource("1_xhen4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_55dxe")
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.286275)
 
 [node name="PauseBg" type="Sprite2D" parent="."]
 modulate = Color(0.592157, 0.592157, 0.592157, 0.231373)
