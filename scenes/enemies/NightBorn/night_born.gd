@@ -17,4 +17,5 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 				attack_collision.position.x *= -1
 			elif attack_collision.position.x < 0 and !anim_sprite2d.flip_h:
 				attack_collision.position.x = abs(attack_collision.position.x)
-			print("ataque activo")
+			call_deferred("_check_attack_overlap")
+			

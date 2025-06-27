@@ -27,6 +27,7 @@ var direction: Vector2
 var previous_state: ENEMY_STATES
 var can_attack: bool = true
 var bodies
+var attack_bodies
 
 var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
 	get:
@@ -37,6 +38,7 @@ var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
 
 func _ready(): 
 	player_ref = get_tree().get_nodes_in_group("player")[0]
+	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	attack_area.visible = false
 	attack_area.monitorable = false
 	attack_area.monitoring = false
@@ -94,13 +96,6 @@ func flip_sprite():
 
 func _on_idle_timer_timeout() -> void:
 	anim_sprite2d.flip_h = !anim_sprite2d.flip_h
-
-func reset_attack():
-	attack_area.visible = false
-	attack_area.monitorable = false
-	attack_area.monitoring = false
-	current_state = ENEMY_STATES.IDLE
-
 #endregion
 
 
@@ -121,6 +116,7 @@ func receive_attack():
 	previous_state = current_state
 	if previous_state == ENEMY_STATES.ATTACK:
 		previous_state == ENEMY_STATES.RUN
+		can_attack = true
 	current_state = ENEMY_STATES.HIT
 	var tween = create_tween()
 	tween.tween_property(anim_sprite2d,"self_modulate", Color(1,0,0),0.25)
@@ -131,6 +127,7 @@ func receive_attack():
 func _on_hit_box_area_entered(area: Area2D) -> void: #funcion para cuando un ataque del jugador entre en el area del enemigo
 	hp -= player_ref.strenght
 	call_deferred("make_invencible")
+	call_deferred("reset_attack")
 	if hp <= 0: #cuando la vida llegue a 0
 		current_state = ENEMY_STATES.DEATH
 		anim_sprite2d.play("death")
@@ -144,7 +141,12 @@ func _on_attack_timer_timeout() -> void:
 	can_attack = true
 	current_state = ENEMY_STATES.RUN
 
-
+func reset_attack():
+	attack_area.visible = false
+	attack_area.monitorable = false
+	attack_area.monitoring = false
+	if hp > 0:
+		current_state = ENEMY_STATES.IDLE
 
 #endregion
 
@@ -152,3 +154,8 @@ func _on_attack_timer_timeout() -> void:
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if hp > 0:
 		current_state = ENEMY_STATES.RUN
+
+func _on_attack_area_body_entered(body):
+	if body.is_in_group("player"):
+		print("¡Golpe directo con señal!")
+		SignalManager.on_enemy_hit.emit(damage)

@@ -35,6 +35,7 @@ func _ready() -> void:
 	anim_sprite2d.play("idle_down")
 	NavigationManager.on_trigger_player_spawn.connect(on_spawn)
 	anim_sword.connect("animation_finished", Callable(self, "_on_sword_animation_finished"))
+	SignalManager.on_enemy_hit.connect(take_dmg)
 
 
 func on_spawn(position: Vector2, direction: String):
@@ -139,7 +140,7 @@ func set_state(new_state: PLAYER_STATE):
 			PLAYER_STATE.ATTACK_RIGHT:
 				set_attack_animation()
 			PLAYER_STATE.HIT:
-				take_dmg()
+				pass
 			PLAYER_STATE.DEATH:
 				death()
 
@@ -240,10 +241,10 @@ func _on_sword_animation_finished() -> void:
 	if anim_sword.animation.begins_with("sword_attack"):
 		reset_state()
 
-func take_dmg():
+func take_dmg(damage: int):
 	if is_dead:
 		return
-	hp-= 1 #enemy_ref.strength
+	hp-= damage #enemy_ref.strength
 	GameManager.update_hp_player(hp)
 
 	if hp <= 0:
