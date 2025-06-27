@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dx71uyme1vllf"]
+[gd_scene load_steps=23 format=4 uid="uid://dx71uyme1vllf"]
 
 [ext_resource type="Script" uid="uid://di8g6jgdinklx" path="res://scenes/levels/room_doors_scripts/west_rooms.gd" id="1_7hbim"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="2_xtsls"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="11_nbq2r"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="12_axx8q"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="13_tkt8d"]
+[ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="13_xtsls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klotl"]
 resource_name = "WallsAndFloor_F1"
@@ -1249,6 +1250,8 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_E" index="1"]
 position = Vector2(-24.6, -0.4)
+
+[node name="HudLife" parent="." instance=ExtResource("13_xtsls")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

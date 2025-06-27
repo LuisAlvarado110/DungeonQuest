@@ -21,6 +21,7 @@ NavigationManager="*res://singleton/NavigationManager.gd"
 SignalManager="*res://singleton/SignalManager.gd"
 GameManager="*res://singleton/GameManager.gd"
 ObjectMaker="*res://singleton/ObjectMaker.gd"
+RoomManager="*res://singleton/RoomManager.gd"
 
 [input]
 

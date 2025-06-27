@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://c8puan2hipr3s"]
+[gd_scene load_steps=24 format=4 uid="uid://c8puan2hipr3s"]
 
 [ext_resource type="Script" uid="uid://g55sw42vm17t" path="res://scenes/levels/room_doors_scripts/south_rooms.gd" id="1_gr1kk"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="2_g1wtn"]
@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://2ufgfawdliil" path="res://assets/tiles/Dungeon_Tileset_ocher.png" id="7_dqf8v"]
 [ext_resource type="Texture2D" uid="uid://cnyfrm736ecgv" path="res://assets/tiles/0x72_DungeonTilesetII_v1.7.png" id="8_hfnpy"]
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="9_0bg5a"]
+[ext_resource type="PackedScene" uid="uid://buor4yto3semo" path="res://scenes/enemies/orc/orc.tscn" id="10_3g8dg"]
 [ext_resource type="PackedScene" uid="uid://citq7cmjf5n66" path="res://scenes/enemies/goblin/goblin.tscn" id="10_brful"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="10_u1om3"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/eyeball/eyeball.tscn" id="11_brful"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="11_jqlhr"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="12_g1wtn"]
+[ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="14_3g8dg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tox1a"]
 resource_name = "WallsAndFloor_F1"
@@ -1219,14 +1220,6 @@ tile_set = ExtResource("6_1ax4r")
 scale = Vector2(2.22, 2.22)
 tile_set = SubResource("TileSet_3hfv3")
 
-[node name="eyeball" parent="." instance=ExtResource("11_brful")]
-position = Vector2(104, 472)
-scale = Vector2(4, 4)
-
-[node name="eyeball2" parent="." instance=ExtResource("11_brful")]
-position = Vector2(1056, 480)
-scale = Vector2(4, 4)
-
 [node name="goblin" parent="." instance=ExtResource("10_brful")]
 position = Vector2(304, 320)
 scale = Vector2(1.2, 1.2)
@@ -1234,6 +1227,14 @@ scale = Vector2(1.2, 1.2)
 [node name="goblin2" parent="." instance=ExtResource("10_brful")]
 position = Vector2(840, 320)
 scale = Vector2(1.2, 1.2)
+
+[node name="orc" parent="." instance=ExtResource("10_3g8dg")]
+position = Vector2(122, 480)
+scale = Vector2(1.7, 1.7)
+
+[node name="orc2" parent="." instance=ExtResource("10_3g8dg")]
+position = Vector2(1025, 480)
+scale = Vector2(1.7, 1.7)
 
 [node name="Player" parent="." instance=ExtResource("9_0bg5a")]
 position = Vector2(568, 136)
@@ -1250,6 +1251,8 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_N" index="1"]
 position = Vector2(-0.799988, 35.2)
+
+[node name="HudLife" parent="." instance=ExtResource("14_3g8dg")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

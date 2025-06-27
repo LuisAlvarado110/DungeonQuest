@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cnyfrm736ecgv" path="res://assets/tiles/0x72_DungeonTilesetII_v1.7.png" id="6_4tvvx"]
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="8_vq7yw"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="9_4tvvx"]
-[ext_resource type="PackedScene" uid="uid://bft40ma8wdkjc" path="res://scenes/enemies/BladeTrap/BladeTrap.tscn" id="9_nhyw2"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="10_vbvnt"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="12_k8kej"]
+[ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="13_nhyw2"]
 [ext_resource type="PackedScene" uid="uid://c3mykdmi8vhhx" path="res://scenes/enemies/SlimeGirl/slime_girl.tscn" id="14_sheti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klotl"]
@@ -1222,18 +1222,6 @@ tile_set = SubResource("TileSet_44com")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_nhyw2")
 
-[node name="BladeTrap" parent="." instance=ExtResource("9_nhyw2")]
-position = Vector2(992, 224)
-
-[node name="BladeTrap2" parent="." instance=ExtResource("9_nhyw2")]
-position = Vector2(992, 480)
-
-[node name="BladeTrap3" parent="." instance=ExtResource("9_nhyw2")]
-position = Vector2(160, 472)
-
-[node name="BladeTrap4" parent="." instance=ExtResource("9_nhyw2")]
-position = Vector2(160, 224)
-
 [node name="SlimeGirl" parent="." instance=ExtResource("14_sheti")]
 position = Vector2(296, 264)
 scale = Vector2(2, 2)
@@ -1258,6 +1246,8 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_E" index="1"]
 position = Vector2(-24.6, -0.4)
+
+[node name="HudLife" parent="." instance=ExtResource("13_nhyw2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

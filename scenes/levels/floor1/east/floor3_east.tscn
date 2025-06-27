@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dtjvlmpyc2o6m"]
+[gd_scene load_steps=23 format=4 uid="uid://dtjvlmpyc2o6m"]
 
 [ext_resource type="Script" uid="uid://1da0faxvoydt" path="res://scenes/levels/room_doors_scripts/east_rooms.gd" id="1_36k3q"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="2_2olrm"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="10_syrie"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="11_0t133"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="12_oowfx"]
+[ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="13_2olrm"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="13_cx08l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j17tk"]
@@ -1245,6 +1246,8 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_W" index="1"]
 position = Vector2(20.2, 0.400006)
+
+[node name="HudLife" parent="." instance=ExtResource("13_2olrm")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

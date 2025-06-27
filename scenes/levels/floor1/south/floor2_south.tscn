@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cf8jsriv22ww6"]
+[gd_scene load_steps=23 format=4 uid="uid://cf8jsriv22ww6"]
 
 [ext_resource type="Script" uid="uid://g55sw42vm17t" path="res://scenes/levels/room_doors_scripts/south_rooms.gd" id="1_2fmh1"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="2_6tumi"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="9_13718"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="10_sss44"]
 [ext_resource type="PackedScene" uid="uid://c3mykdmi8vhhx" path="res://scenes/enemies/SlimeGirl/slime_girl.tscn" id="11_t43jw"]
+[ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="13_2fmh1"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="13_6iude"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="14_jp4mo"]
 
@@ -1265,6 +1266,8 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_N" index="1"]
 position = Vector2(-0.799988, 35.2)
+
+[node name="HudLife" parent="." instance=ExtResource("13_2fmh1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

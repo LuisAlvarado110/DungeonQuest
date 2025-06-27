@@ -1,8 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://bft40ma8wdkjc"]
+[gd_scene load_steps=8 format=3 uid="uid://bft40ma8wdkjc"]
 
+[ext_resource type="Script" uid="uid://c4fqwmqvk5p3w" path="res://scenes/enemies/BladeTrap/blade_trap.gd" id="1_ga4oj"]
 [ext_resource type="Texture2D" uid="uid://8lhb6fvbjjve" path="res://assets/enemies/blade_trap.png" id="1_yo6q0"]
 
-[node name="BladeTrap" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ed3jf"]
+radius = 36.3456
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wotc"]
+size = Vector2(1093, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co8ol"]
+size = Vector2(20, 591)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t67d"]
+size = Vector2(20, 629)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7dop"]
+size = Vector2(938, 20)
+
+[node name="BladeTrap" type="CharacterBody2D"]
+script = ExtResource("1_ga4oj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yo6q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ed3jf")
+
+[node name="Area2D_Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Right"]
+position = Vector2(600.5, 0)
+shape = SubResource("RectangleShape2D_6wotc")
+debug_color = Color(0.997688, 0, 0.1603, 0.42)
+
+[node name="Area2D_Left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Left"]
+position = Vector2(0, 330)
+shape = SubResource("RectangleShape2D_co8ol")
+debug_color = Color(0.967794, 0.180682, 0, 0.42)
+
+[node name="Area2D_Up" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Up"]
+position = Vector2(2, -355.5)
+shape = SubResource("RectangleShape2D_3t67d")
+debug_color = Color(0.997688, 0, 0.1603, 0.42)
+
+[node name="Area2D_Down" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Down"]
+position = Vector2(-511, 0)
+shape = SubResource("RectangleShape2D_y7dop")
+debug_color = Color(0.995267, 0, 0.208223, 0.42)
