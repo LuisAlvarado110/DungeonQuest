@@ -3045,7 +3045,6 @@ scale = Vector2(1.49063, 1.41964)
 sprite_frames = SubResource("SpriteFrames_nleuy")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.809438
 
 [node name="puerta_oeste" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
@@ -3056,8 +3055,6 @@ rotation = -1.5708
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
-frame = 1
-frame_progress = 1.0
 
 [node name="puerta_este" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
@@ -3068,8 +3065,6 @@ rotation = 3.14159
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
-frame = 1
-frame_progress = 1.0
 
 [node name="puerta_sur" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
@@ -3080,5 +3075,3 @@ rotation = 1.5708
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
-frame = 1
-frame_progress = 1.0
