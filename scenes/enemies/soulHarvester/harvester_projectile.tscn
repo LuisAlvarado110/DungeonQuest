@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://wihbkm4s1usy"]
+
+[ext_resource type="Texture2D" uid="uid://bmh5ks4jotcub" path="res://assets/enemies/soulHarvester/soulHarvester_F2.png" id="1_0vhwd"]
+[ext_resource type="Script" uid="uid://ctx00xytn77pp" path="res://scenes/enemies/soulHarvester/harvester_projectile.gd" id="1_ceajq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ceajq"]
+radius = 34.0
+
+[node name="HarvesterProjectile" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ceajq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0vhwd")
+hframes = 8
+vframes = 3
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(27, 13)
+shape = SubResource("CircleShape2D_ceajq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(22, 16.5)
+scale = Vector2(3.2, 2.95)
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

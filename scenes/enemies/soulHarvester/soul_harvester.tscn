@@ -1,0 +1,215 @@
+[gd_scene load_steps=30 format=3 uid="uid://cc4ddyb8u7lrj"]
+
+[ext_resource type="PackedScene" uid="uid://cvkypld6slpr4" path="res://scenes/BaseEnemy/BaseEnemy.tscn" id="1_0i0xw"]
+[ext_resource type="Texture2D" uid="uid://bmh5ks4jotcub" path="res://assets/enemies/soulHarvester/soulHarvester_F2.png" id="2_c3570"]
+[ext_resource type="Script" uid="uid://dj8ei8vmrfxek" path="res://scenes/enemies/soulHarvester/soul_harvester.gd" id="2_sqocm"]
+[ext_resource type="Texture2D" uid="uid://ccwsxay85trig" path="res://assets/enemies/generic_death/explosion1_1.png" id="3_sqocm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ill65"]
+atlas = ExtResource("2_c3570")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew1ly"]
+atlas = ExtResource("2_c3570")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yayrl"]
+atlas = ExtResource("2_c3570")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0smv2"]
+atlas = ExtResource("2_c3570")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u5wt"]
+atlas = ExtResource("3_sqocm")
+region = Rect2(0, 0, 216, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64786"]
+atlas = ExtResource("3_sqocm")
+region = Rect2(216, 0, 216, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba7jy"]
+atlas = ExtResource("3_sqocm")
+region = Rect2(648, 0, 216, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qptx"]
+atlas = ExtResource("3_sqocm")
+region = Rect2(432, 0, 216, 209)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5avub"]
+atlas = ExtResource("2_c3570")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa3bm"]
+atlas = ExtResource("2_c3570")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p8hn"]
+atlas = ExtResource("2_c3570")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s4c2"]
+atlas = ExtResource("2_c3570")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4f8w"]
+atlas = ExtResource("2_c3570")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm2tn"]
+atlas = ExtResource("2_c3570")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6n6o"]
+atlas = ExtResource("2_c3570")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1flu"]
+atlas = ExtResource("2_c3570")
+region = Rect2(1024, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q44hp"]
+atlas = ExtResource("2_c3570")
+region = Rect2(1024, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avkpe"]
+atlas = ExtResource("2_c3570")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihb5r"]
+atlas = ExtResource("2_c3570")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vedih"]
+atlas = ExtResource("2_c3570")
+region = Rect2(768, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdq50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ill65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew1ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yayrl")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0smv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u5wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64786")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba7jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qptx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5avub")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa3bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p8hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s4c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4f8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm2tn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6n6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1flu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q44hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avkpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihb5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vedih")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2346y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_avgep"]
+radius = 224.109
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tutld"]
+size = Vector2(57, 66)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id358"]
+radius = 270.03
+
+[node name="soulHarvester" instance=ExtResource("1_0i0xw")]
+script = ExtResource("2_sqocm")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_vdq50")
+animation = &"attack"
+
+[node name="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_2346y")
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource("CircleShape2D_avgep")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0.5, 25)
+shape = SubResource("RectangleShape2D_tutld")
+
+[node name="CollisionShape2D" parent="RangeArea" index="0"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_id358")
+
+[node name="AttackTimer" parent="." index="9"]
+wait_time = 2.5
+
+[node name="Marker2D" type="Marker2D" parent="." index="10"]
+position = Vector2(39, 10)
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

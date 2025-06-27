@@ -42,6 +42,8 @@ func _ready():
 
 
 func _physics_process(delta: float) -> void:
+	if hp <= 0:
+		current_state = ENEMY_STATES.DEATH
 	move_and_slide()
 	#estas 3 lineas se encargan de revisar si hay cuerpos dentro del area de deteccion
 	bodies = range_area.has_overlapping_bodies() 
@@ -167,5 +169,5 @@ func reset_attack():
 
 #funcion que se encarga de cambiar al estado correr al detectar al jugador
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if hp > 0:
+	if hp > 0 and current_state != ENEMY_STATES.ATTACK:
 		current_state = ENEMY_STATES.RUN
