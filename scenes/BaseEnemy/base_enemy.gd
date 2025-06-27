@@ -40,6 +40,8 @@ func _ready():
 	attack_area.monitorable = false
 	attack_area.monitoring = false
 
+func _exit_tree() -> void:
+	RoomManager.on_enemy_die.emit()
 
 func _physics_process(delta: float) -> void:
 	if hp <= 0:
