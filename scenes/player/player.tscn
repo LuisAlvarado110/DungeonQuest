@@ -1124,6 +1124,7 @@ height = 72.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_p47bc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1141,7 +1142,7 @@ animation = &"sword_attack_down"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0owmy")
-animation = &"death"
+animation = &"idle_down"
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

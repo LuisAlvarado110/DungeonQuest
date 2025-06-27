@@ -75,7 +75,7 @@ func player_input(delta: float):
 	
 	if Input.is_action_just_pressed("attack"):
 		attack()
-		take_dmg()
+		#take_dmg()
 
 func attack():
 	is_attacking = true;

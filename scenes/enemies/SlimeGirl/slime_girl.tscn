@@ -648,7 +648,9 @@ script = ExtResource("2_33alk")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_istys")
-animation = &"transition"
+animation = &"attack"
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false

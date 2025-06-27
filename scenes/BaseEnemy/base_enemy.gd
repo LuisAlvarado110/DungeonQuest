@@ -7,6 +7,7 @@ enum ENEMY_STATES {IDLE, RUN, ATTACK, HIT, DEATH}
 @export var hp: int = 5
 @export var damage: int = 1
 @export var movement_speed: int = 15000.0
+@export var frame_attack: int
 
 @onready var anim_sprite2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -15,6 +16,8 @@ enum ENEMY_STATES {IDLE, RUN, ATTACK, HIT, DEATH}
 @onready var attack_timer: Timer = $AttackTimer
 @onready var idle_timer: Timer = $IdleTimer
 @onready var hitbox: Area2D = $HitBox
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_collision: CollisionShape2D = $%CollisionShape2D
 @onready var player_ref: Player
 @onready var range_area: Area2D = $RangeArea
 
@@ -34,6 +37,9 @@ var current_state: ENEMY_STATES = ENEMY_STATES.IDLE:
 
 func _ready(): 
 	player_ref = get_tree().get_nodes_in_group("player")[0]
+	attack_area.visible = false
+	attack_area.monitorable = false
+	attack_area.monitoring = false
 
 
 func _physics_process(delta: float) -> void:
@@ -42,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	bodies = range_area.has_overlapping_bodies() 
 	if bodies and can_attack and hp > 0 and current_state == ENEMY_STATES.RUN:
 		current_state = ENEMY_STATES.ATTACK
+		can_attack = false
 	
 	flip_sprite()
 	
@@ -50,12 +57,10 @@ func _physics_process(delta: float) -> void:
 			if idle_timer.is_stopped():
 				idle_timer.start()
 			anim_sprite2d.play("idle")
-			print("IDLE")
 		ENEMY_STATES.RUN:
 			anim_sprite2d.play("run")
 			if !idle_timer.is_stopped():
 				idle_timer.stop()
-			print("RUN")
 			nav_agent.target_position = player_ref.global_position
 			direction = to_local(nav_agent.get_next_path_position()).normalized()
 		ENEMY_STATES.ATTACK:
@@ -78,22 +83,23 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		"attack":
 			print("ataque terminado")
 			attack_timer.start()
-			can_attack = true
-			current_state = ENEMY_STATES.RUN
+			reset_attack()
 
 #region funciones encargadas de solucionar detalles
 func flip_sprite():
 	if velocity.x > 0:
-		anim_sprite2d.flip_h = false 
+		anim_sprite2d.flip_h = false
 	else:
 		anim_sprite2d.flip_h = true
 
 func _on_idle_timer_timeout() -> void:
 	anim_sprite2d.flip_h = !anim_sprite2d.flip_h
-	print("Girar")
 
-func reset_states():
-	can_attack = true
+func reset_attack():
+	attack_area.visible = false
+	attack_area.monitorable = false
+	attack_area.monitoring = false
+	current_state = ENEMY_STATES.IDLE
 
 #endregion
 
@@ -136,6 +142,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void: #funcion para cuando un ata
 #region funciones encargadas del ataque
 func _on_attack_timer_timeout() -> void:
 	can_attack = true
+	current_state = ENEMY_STATES.RUN
 
 
 
@@ -143,4 +150,5 @@ func _on_attack_timer_timeout() -> void:
 
 #funcion que se encarga de cambiar al estado correr al detectar al jugador
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	current_state = ENEMY_STATES.RUN
+	if hp > 0:
+		current_state = ENEMY_STATES.RUN
