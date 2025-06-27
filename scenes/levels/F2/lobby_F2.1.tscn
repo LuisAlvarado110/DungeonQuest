@@ -1,16 +1,16 @@
 [gd_scene load_steps=23 format=4 uid="uid://5jxvkvbfw72r"]
 
-[ext_resource type="Texture2D" uid="uid://cvmt20avwli8m" path="res://assets/tiles/mainlevbuild.png" id="1_nvlh8"]
-[ext_resource type="Texture2D" uid="uid://48a2m2dmviod" path="res://assets/decoration/accesories/DungeonDecorations.png" id="2_abmk4"]
-[ext_resource type="Texture2D" uid="uid://dge5175if1rro" path="res://assets/decoration/door's/GoblinDoor_Close_0.png" id="3_k661k"]
-[ext_resource type="Texture2D" uid="uid://cp2ax1p7kpr6y" path="res://assets/decoration/door's/GoblinDoor_Close_1.png" id="4_nir5x"]
-[ext_resource type="Texture2D" uid="uid://bm6aqs2njq43l" path="res://assets/decoration/door's/GoblinDoor_Close_2.png" id="5_gssn2"]
-[ext_resource type="Texture2D" uid="uid://btagxdidc66ue" path="res://assets/decoration/door's/GoblinDoor_Close_3.png" id="6_6y41h"]
-[ext_resource type="Texture2D" uid="uid://c2a0optdnru7x" path="res://assets/decoration/door's/GoblinDoor_Open.png" id="7_2y10t"]
-[ext_resource type="Texture2D" uid="uid://2ufgfawdliil" path="res://assets/tiles/Dungeon_Tileset_ocher.png" id="8_uqbkf"]
+[ext_resource type="Texture2D" uid="uid://cvmt20avwli8m" path="res://assets/tiles/mainlevbuild.png" id="1_xgsjr"]
+[ext_resource type="Texture2D" uid="uid://48a2m2dmviod" path="res://assets/decoration/accesories/DungeonDecorations.png" id="2_r1x04"]
+[ext_resource type="Texture2D" uid="uid://dge5175if1rro" path="res://assets/decoration/door's/GoblinDoor_Close_0.png" id="3_eaq8v"]
+[ext_resource type="Texture2D" uid="uid://cp2ax1p7kpr6y" path="res://assets/decoration/door's/GoblinDoor_Close_1.png" id="4_yvpp0"]
+[ext_resource type="Texture2D" uid="uid://bm6aqs2njq43l" path="res://assets/decoration/door's/GoblinDoor_Close_2.png" id="5_2tc3u"]
+[ext_resource type="Texture2D" uid="uid://btagxdidc66ue" path="res://assets/decoration/door's/GoblinDoor_Close_3.png" id="6_11cqv"]
+[ext_resource type="Texture2D" uid="uid://c2a0optdnru7x" path="res://assets/decoration/door's/GoblinDoor_Open.png" id="7_yivuh"]
+[ext_resource type="Texture2D" uid="uid://2ufgfawdliil" path="res://assets/tiles/Dungeon_Tileset_ocher.png" id="8_ldv3h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7280t"]
-texture = ExtResource("1_nvlh8")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgsjr"]
+texture = ExtResource("1_xgsjr")
 40:0/0 = 0
 41:0/0 = 0
 42:0/0 = 0
@@ -1037,10 +1037,10 @@ texture = ExtResource("1_nvlh8")
 14:33/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_farvb"]
-sources/0 = SubResource("TileSetAtlasSource_7280t")
+sources/0 = SubResource("TileSetAtlasSource_xgsjr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uovg0"]
-texture = ExtResource("1_nvlh8")
+texture = ExtResource("1_xgsjr")
 40:0/0 = 0
 41:0/0 = 0
 42:0/0 = 0
@@ -2067,7 +2067,7 @@ texture = ExtResource("1_nvlh8")
 14:33/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssx0q"]
-texture = ExtResource("2_abmk4")
+texture = ExtResource("2_r1x04")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -2441,23 +2441,23 @@ sources/0 = SubResource("TileSetAtlasSource_uovg0")
 sources/1 = SubResource("TileSetAtlasSource_ssx0q")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs06q"]
-atlas = ExtResource("3_k661k")
+atlas = ExtResource("3_eaq8v")
 region = Rect2(0, 20, 160, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn0vy"]
-atlas = ExtResource("4_nir5x")
+atlas = ExtResource("4_yvpp0")
 region = Rect2(0, 20, 160, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qyk2e"]
-atlas = ExtResource("5_gssn2")
+atlas = ExtResource("5_2tc3u")
 region = Rect2(0, 20, 160, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mvlc0"]
-atlas = ExtResource("6_6y41h")
+atlas = ExtResource("6_11cqv")
 region = Rect2(0, 20, 160, 140)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v611e"]
-atlas = ExtResource("7_2y10t")
+atlas = ExtResource("7_yivuh")
 region = Rect2(0, 20, 160, 140)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nleuy"]
@@ -2501,11 +2501,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjubc"]
-atlas = ExtResource("8_uqbkf")
+atlas = ExtResource("8_ldv3h")
 region = Rect2(96, 96, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7dqc"]
-atlas = ExtResource("8_uqbkf")
+atlas = ExtResource("8_ldv3h")
 region = Rect2(109, 64, 35, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_17wfa"]
@@ -2538,7 +2538,7 @@ tile_map_data = PackedByteArray("AAAJAAUAAAAoABsAACAJAAYAAAAoABsAAAAKAAUAAAApABs
 tile_set = SubResource("TileSet_u5gc6")
 
 [node name="boos_door" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(0.796243, 0.796243, 0.796243, 1)
+self_modulate = Color(0.703808, 0.703808, 0.703808, 1)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(573.75, 58.625)
@@ -2546,9 +2546,10 @@ scale = Vector2(1.49063, 1.41964)
 sprite_frames = SubResource("SpriteFrames_nleuy")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.417338
+frame_progress = 0.845835
 
 [node name="puerta_oeste" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(35.7283, 347.681)
@@ -2556,8 +2557,11 @@ rotation = -1.5708
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
+frame = 1
+frame_progress = 1.0
 
 [node name="puerta_este" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(577, 611)
@@ -2565,8 +2569,11 @@ rotation = 3.14159
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
+frame = 1
+frame_progress = 1.0
 
 [node name="puerta_sur" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.701961, 0.701961, 0.701961, 1)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1125, 346)
@@ -2574,3 +2581,5 @@ rotation = 1.5708
 scale = Vector2(3.73205, 4.43941)
 sprite_frames = SubResource("SpriteFrames_17wfa")
 animation = &"opening"
+frame = 1
+frame_progress = 1.0
