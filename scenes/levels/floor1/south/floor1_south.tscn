@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c8puan2hipr3s"]
+[gd_scene load_steps=26 format=4 uid="uid://c8puan2hipr3s"]
 
 [ext_resource type="Script" uid="uid://g55sw42vm17t" path="res://scenes/levels/room_doors_scripts/south_rooms.gd" id="1_gr1kk"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="2_g1wtn"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="12_g1wtn"]
 [ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="14_3g8dg"]
 [ext_resource type="PackedScene" uid="uid://ghy2dekc4m7f" path="res://scenes/canvas/GameOver.tscn" id="16_1ax4r"]
+[ext_resource type="PackedScene" uid="uid://cc4ddyb8u7lrj" path="res://scenes/enemies/soulHarvester/soul_harvester.tscn" id="17_dqf8v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tox1a"]
 resource_name = "WallsAndFloor_F1"
@@ -1260,5 +1261,9 @@ position = Vector2(-0.799988, 35.2)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_g1wtn")]
 
 [node name="GameOver" parent="." instance=ExtResource("16_1ax4r")]
+
+[node name="soulHarvester" parent="." instance=ExtResource("17_dqf8v")]
+position = Vector2(575, 460)
+scale = Vector2(1.5, 1.5)
 
 [editable path="Door_N"]

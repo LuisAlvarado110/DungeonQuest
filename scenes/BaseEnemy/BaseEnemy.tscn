@@ -45,7 +45,6 @@ position = Vector2(0, 11)
 debug_color = Color(0.687727, 0.494834, 0.188584, 0.42)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="IdleTimer" type="Timer" parent="."]
 wait_time = 2.5

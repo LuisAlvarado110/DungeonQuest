@@ -98,9 +98,10 @@ scale = Vector2(2, 2)
 position = Vector2(1403, 221)
 scale = Vector2(2, 2)
 
+[node name="medusa" parent="." instance=ExtResource("11_hq32h")]
+position = Vector2(2109, 422)
+scale = Vector2(4.5, 4.5)
+
 [node name="soulHarvester" parent="." instance=ExtResource("8_j81xe")]
 position = Vector2(1743, 211)
 scale = Vector2(1.5, 1.5)
-
-[node name="medusa" parent="soulHarvester" instance=ExtResource("11_hq32h")]
-position = Vector2(244, 140.667)

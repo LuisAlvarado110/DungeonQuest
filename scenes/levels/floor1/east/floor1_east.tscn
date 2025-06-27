@@ -1221,6 +1221,7 @@ scale = Vector2(2.22, 2.22)
 tile_set = SubResource("TileSet_iyouv")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_xtbvm")
 
 [node name="Player" parent="." instance=ExtResource("9_e6p1x")]
