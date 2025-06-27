@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ghy2dekc4m7f"]
+[gd_scene load_steps=9 format=3 uid="uid://ghy2dekc4m7f"]
 
+[ext_resource type="Script" uid="uid://dynfi280gf4yg" path="res://scenes/canvas/game_over.gd" id="1_isjs4"]
 [ext_resource type="Texture2D" uid="uid://dtw2wo1y8nbfo" path="res://assets/background_red/red_bg.png" id="1_nnjpq"]
 [ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="1_pmtpw"]
 [ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="2_nnjpq"]
@@ -12,6 +13,7 @@ font = ExtResource("5_skbob")
 font_size = 34
 
 [node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_isjs4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 0.498039)
@@ -99,3 +101,6 @@ text = "Salir"
 label_settings = SubResource("LabelSettings_0g67d")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/MenuBtn" to="." method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

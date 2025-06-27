@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://5cn67e2nkfsp"]
 
 [ext_resource type="Script" uid="uid://bfr0auxdy4n0" path="res://scenes/MainMenu/main_menu.gd" id="1_7j8ul"]
-[ext_resource type="Texture2D" uid="uid://c11uvd4ydndvm" path="res://assets/placeholder/menu_placeholder.png" id="1_i21gk"]
+[ext_resource type="Texture2D" uid="uid://dproxh1v4dy6y" path="res://assets/background_title/title_bg.png" id="2_0qq82"]
 [ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="2_r8q81"]
 [ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="3_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="4_0qq82"]
@@ -23,7 +23,8 @@ script = ExtResource("1_7j8ul")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_i21gk")
+texture = ExtResource("2_0qq82")
+expand_mode = 2
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 

@@ -259,6 +259,7 @@ func death():
 	is_dead = true
 	hitbox.monitoring = false
 	hitbox.monitorable = false
+	SignalManager.on_player_death.emit()
 	
 
 func set_hit_animation():
