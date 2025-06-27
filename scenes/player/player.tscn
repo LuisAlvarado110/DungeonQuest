@@ -1142,7 +1142,8 @@ animation = &"sword_attack_down"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0owmy")
-animation = &"idle_down"
+animation = &"run_down"
+frame_progress = 0.391759
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2

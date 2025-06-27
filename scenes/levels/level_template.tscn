@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dj0ith6ejb0bh"]
+[gd_scene load_steps=11 format=4 uid="uid://dj0ith6ejb0bh"]
 
 [ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_7hipx"]
 [ext_resource type="TileSet" uid="uid://b5hhivf3bqlf4" path="res://misc/tile_set/dungeon_tile_set.tres" id="2_4s5u3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3nvlkxir7mjh" path="res://scenes/enemies/NightBorn/night_born.tscn" id="6_eokde"]
 [ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="7_ulyey"]
 [ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="8_j81xe"]
+[ext_resource type="PackedScene" uid="uid://ghy2dekc4m7f" path="res://scenes/canvas/GameOver.tscn" id="9_qvykx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eokde"]
 vertices = PackedVector2Array(921.031, -89.0938, 922.953, 385.961, -65.9063, 382.031, -62.0703, -98.8984)
@@ -86,3 +87,5 @@ navigation_polygon = SubResource("NavigationPolygon_eokde")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_j81xe")]
+
+[node name="GameOver" parent="." instance=ExtResource("9_qvykx")]
