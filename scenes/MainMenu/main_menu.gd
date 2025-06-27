@@ -13,3 +13,7 @@ func _on_lvl_temp_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	GameManager.on_exit()
+
+
+func _on_play_button_pressed() -> void:
+	GameManager.on_play_game()

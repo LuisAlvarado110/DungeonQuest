@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bpu5vxfqbaiv2"]
+[gd_scene load_steps=27 format=4 uid="uid://bpu5vxfqbaiv2"]
 
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="1_hhuo7"]
 [ext_resource type="Script" uid="uid://ddevfxv7l25t6" path="res://scenes/levels/floor1/spawn_room.gd" id="1_m242v"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://2ufgfawdliil" path="res://assets/tiles/Dungeon_Tileset_ocher.png" id="11_6x0xy"]
 [ext_resource type="Texture2D" uid="uid://cnyfrm736ecgv" path="res://assets/tiles/0x72_DungeonTilesetII_v1.7.png" id="12_7xs02"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="12_vyqbv"]
+[ext_resource type="PackedScene" uid="uid://c3mykdmi8vhhx" path="res://scenes/enemies/SlimeGirl/slime_girl.tscn" id="14_f821o"]
+[ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="15_te2fx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r42t5"]
 resource_name = "WallsAndFloor_F1"
@@ -1431,6 +1433,13 @@ destination_door_tag = "E"
 
 [node name="Spawn" parent="Door_W" index="1"]
 position = Vector2(24.5, 0.25)
+
+[node name="SlimeGirl" parent="." instance=ExtResource("14_f821o")]
+position = Vector2(712, 256)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_te2fx")]
 
 [editable path="Door_N"]
 [editable path="Door_S"]

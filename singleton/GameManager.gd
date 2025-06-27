@@ -1,10 +1,6 @@
 extends Node
 
 
-var lvl_tmp_scene = preload("res://scenes/levels/level_template.tscn")
-var lvl_tst = preload("res://scenes/LevelGenTesting/LevelTestingLoader.tscn")
-
-
 var rng = RandomNumberGenerator.new()
 var spawn_room
 var w_room #West Room
@@ -42,13 +38,19 @@ func generate_rooms():
 
 func on_lvl_tst():
 	var game_scene
-	get_tree().change_scene_to_packed(lvl_tst)
+	get_tree().change_scene_to_packed(preload("res://scenes/LevelGenTesting/LevelTestingLoader.tscn"))
 
 func on_lvl_tmp():
-	get_tree().change_scene_to_packed(lvl_tmp_scene)
+	get_tree().change_scene_to_packed(preload("res://scenes/levels/level_template.tscn"))
 
 func on_exit():
 	get_tree().quit()
+
+func on_play_game():
+	get_tree().change_scene_to_packed(preload("res://scenes/levels/floor1/floor1_loader.tscn"))
+
+func on_main_menu():
+	get_tree().change_scene_to_packed(preload("res://scenes/MainMenu/MainMenu.tscn"))
 
 func update_hp_player(hp_player: int):
 	SignalManager.on_hp_update.emit(hp_player)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://hwvu1fey3m8y"]
+[gd_scene load_steps=20 format=4 uid="uid://hwvu1fey3m8y"]
 
 [ext_resource type="Script" uid="uid://di8g6jgdinklx" path="res://scenes/levels/room_doors_scripts/west_rooms.gd" id="1_4tvvx"]
 [ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="1_070pa"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="8_vq7yw"]
 [ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="9_4tvvx"]
 [ext_resource type="PackedScene" uid="uid://fyel8k5cbcpk" path="res://scenes/Door/Door.tscn" id="10_vbvnt"]
+[ext_resource type="PackedScene" uid="uid://q0wwbb4pp1pw" path="res://scenes/canvas/PauseMenu.tscn" id="12_k8kej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_klotl"]
 resource_name = "WallsAndFloor_F1"
@@ -1223,5 +1224,9 @@ scale = Vector2(5, 5)
 
 [node name="Spawn" parent="Door_E" index="1"]
 position = Vector2(-24.6, -0.4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("12_k8kej")]
 
 [editable path="Door_E"]

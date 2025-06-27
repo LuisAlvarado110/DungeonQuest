@@ -1,0 +1,301 @@
+[gd_scene load_steps=16 format=3 uid="uid://q0wwbb4pp1pw"]
+
+[ext_resource type="Texture2D" uid="uid://bsc8nxconrats" path="res://assets/ui/button_long_normal2.png" id="1_q52lm"]
+[ext_resource type="Script" uid="uid://dkb1ldolmjmt8" path="res://scenes/canvas/pause_menu.gd" id="1_vqiy6"]
+[ext_resource type="Texture2D" uid="uid://c11uvd4ydndvm" path="res://assets/placeholder/menu_placeholder.png" id="2_m43xw"]
+[ext_resource type="Texture2D" uid="uid://ci4jgcoypagry" path="res://assets/ui/button_long_pressed2.png" id="2_o2fun"]
+[ext_resource type="Texture2D" uid="uid://d1m7op28ebpdh" path="res://assets/ui/button_long_hover2.png" id="3_jsd4i"]
+[ext_resource type="Shader" uid="uid://drhfh3lvapuhx" path="res://scenes/canvas/PauseMenu.gdshader" id="3_ykcac"]
+[ext_resource type="Script" uid="uid://daiui4cnja56p" path="res://scenes/canvas/resume_button.gd" id="4_jsd4i"]
+[ext_resource type="LabelSettings" uid="uid://bslrs555ttp5c" path="res://misc/label_settings/button_text.tres" id="4_o2fun"]
+[ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="4_qmg4d"]
+[ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="5_yxe5m"]
+[ext_resource type="Texture2D" uid="uid://clm566llytvbh" path="res://assets/ui/button_long_hover1.png" id="6_vqiy6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu2av"]
+shader = ExtResource("3_ykcac")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_weph8"]
+resource_name = "blur"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.82, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_3jp2i"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6um6"]
+_data = {
+&"RESET": SubResource("Animation_3jp2i"),
+&"blur": SubResource("Animation_weph8")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vqiy6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(888, 312)
+texture = ExtResource("2_m43xw")
+region_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qu2av")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0.286275)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ResumeButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_q52lm")
+texture_pressed = ExtResource("2_o2fun")
+texture_hover = ExtResource("3_jsd4i")
+texture_focused = ExtResource("3_jsd4i")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("4_jsd4i")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ResumeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -24.5
+offset_right = 31.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = ExtResource("4_o2fun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_qmg4d")
+texture_pressed = ExtResource("5_yxe5m")
+texture_hover = ExtResource("6_vqiy6")
+texture_focused = ExtResource("6_vqiy6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RestartButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -13.5
+offset_right = 62.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = ExtResource("4_o2fun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_qmg4d")
+texture_pressed = ExtResource("5_yxe5m")
+texture_hover = ExtResource("6_vqiy6")
+texture_focused = ExtResource("6_vqiy6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -13.5
+offset_right = 62.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit to menu"
+label_settings = ExtResource("4_o2fun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DesktopButton" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_qmg4d")
+texture_pressed = ExtResource("5_yxe5m")
+texture_hover = ExtResource("6_vqiy6")
+texture_focused = ExtResource("6_vqiy6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DesktopButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -13.5
+offset_right = 62.5
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit game"
+label_settings = ExtResource("4_o2fun")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a6um6")
+}
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/DesktopButton" to="." method="_on_desktop_button_pressed"]
