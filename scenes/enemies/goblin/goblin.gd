@@ -4,7 +4,7 @@ func _ready() -> void:
 	super._ready()
 	frame_attack = 5
 	damage = 1
-	movement_speed = 14000
+	movement_speed = 22000
 	hp = 3
 
 func _on_animated_sprite_2d_frame_changed() -> void:

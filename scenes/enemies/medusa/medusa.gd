@@ -19,7 +19,7 @@ func _ready() -> void:
 	frame_attack = 3
 	damage = 2
 	movement_speed = 18000
-	hp = 6
+	hp = 15
 
 func _process(delta: float) -> void:
 	if current_state != MEDUSA_STATES.DEATH:

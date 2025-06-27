@@ -404,7 +404,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ss205"]
-radius = 16.0312
+radius = 10.0499
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl2k2"]
 size = Vector2(32, 31)
@@ -416,7 +416,7 @@ radius = 61.131
 size = Vector2(41, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ippao"]
-size = Vector2(82, 30)
+size = Vector2(66, 30)
 
 [node name="NightBorn" instance=ExtResource("1_dn46e")]
 script = ExtResource("2_ss205")
@@ -435,11 +435,9 @@ position = Vector2(25, 15.5)
 shape = SubResource("RectangleShape2D_bl2k2")
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
-visible = false
 shape = SubResource("CircleShape2D_bl2k2")
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-visible = false
 shape = SubResource("RectangleShape2D_ss205")
 
 [node name="CollisionShape2D" parent="RangeArea" index="0"]

@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction = Vector2.UP
-var bullet_speed = 200.0
+var bullet_speed = 350.0
 var damage:int = 1
 
 func set_direction(new_angle : Vector2):
