@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyghbi5ugyjch"]
+
+[ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_cyfjy"]
+[ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="1_s5d2r"]
+[ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="2_cyfjy"]
+[ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="3_xhen4"]
+[ext_resource type="Texture2D" uid="uid://clm566llytvbh" path="res://assets/ui/button_long_hover1.png" id="4_55dxe"]
+[ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="6_ng1e1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6nwc"]
+font = ExtResource("6_ng1e1")
+font_size = 34
+
+[node name="PauseHud" type="CanvasLayer"]
+
+[node name="PauseBg" type="Sprite2D" parent="."]
+modulate = Color(0.592157, 0.592157, 0.592157, 0.231373)
+self_modulate = Color(0.517184, 0.517184, 0.517184, 1)
+position = Vector2(576, 323.25)
+scale = Vector2(6, 6.01389)
+texture = ExtResource("1_cyfjy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -154.0
+offset_right = 578.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="PauseGame" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Pausa "
+label_settings = ExtResource("1_s5d2r")
+horizontal_alignment = 1
+
+[node name="BackBtn" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_cyfjy")
+texture_pressed = ExtResource("3_xhen4")
+texture_hover = ExtResource("4_55dxe")
+texture_focused = ExtResource("4_55dxe")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/BackBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volver"
+label_settings = SubResource("LabelSettings_h6nwc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuBtn" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("2_cyfjy")
+texture_pressed = ExtResource("3_xhen4")
+texture_hover = ExtResource("4_55dxe")
+texture_focused = ExtResource("4_55dxe")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -11.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Salir al inicio"
+label_settings = SubResource("LabelSettings_h6nwc")
+horizontal_alignment = 1
+vertical_alignment = 1
