@@ -1246,13 +1246,13 @@ position = Vector2(20.2, 0.400006)
 
 [node name="GameOver" parent="." instance=ExtResource("15_6sxpe")]
 
+[node name="soulHarvester" parent="." instance=ExtResource("16_nyva5")]
+position = Vector2(822, 277)
+scale = Vector2(2, 2)
+
 [node name="orc" parent="." instance=ExtResource("15_nyva5")]
 position = Vector2(687, 278)
 scale = Vector2(2.5, 2.5)
-
-[node name="soulHarvester" parent="orc" instance=ExtResource("16_nyva5")]
-position = Vector2(53.9999, -0.400012)
-scale = Vector2(0.8, 0.8)
 
 [node name="orc2" parent="." instance=ExtResource("15_nyva5")]
 position = Vector2(863, 140)
