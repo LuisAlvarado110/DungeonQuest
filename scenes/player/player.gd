@@ -19,7 +19,7 @@ enum PLAYER_STATE {IDLE, WALK_UP, WALK_DOWN, WALK_LEFT, WALK_RIGHT,
 
 @export var run_spd = 1
 @export var move_spd = 10000
-@export var hp: int = 2
+@export var hp: int = 5
 @export var strenght: int = 2
 
 var facing_direction: FACING = FACING.DOWN
@@ -238,21 +238,17 @@ func reset_state():
 
 func _on_sword_animation_finished() -> void:
 	if anim_sword.animation.begins_with("sword_attack"):
-		#print("Fin animación de ataque:", anim_sword.animation)
 		reset_state()
-	#if anim_sprite2d.animation == "death":
-	#	queue_free()
 
 func take_dmg():
 	if is_dead:
 		return
 	hp-= 1 #enemy_ref.strength
-	
-	#hitbox.monitoring = false
+	GameManager.update_hp_player(hp)
+
 	if hp <= 0:
 		print("Muerta")
 		set_state(PLAYER_STATE.DEATH)
-		#hitbox.monitorable = false
 	else:
 		set_hit_animation()
 	

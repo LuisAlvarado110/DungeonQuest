@@ -1,7 +1,9 @@
 extends Node
 
+
 var lvl_tmp_scene = preload("res://scenes/levels/level_template.tscn")
 var lvl_tst = preload("res://scenes/LevelGenTesting/LevelTestingLoader.tscn")
+
 
 var rng = RandomNumberGenerator.new()
 var spawn_room
@@ -51,3 +53,6 @@ func on_lvl_tmp():
 
 func on_exit():
 	get_tree().quit()
+
+func update_hp_player(hp_player: int):
+	SignalManager.on_hp_update.emit(hp_player)
