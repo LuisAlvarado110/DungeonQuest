@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d0ulgekem5gi1"]
+[gd_scene load_steps=24 format=4 uid="uid://d0ulgekem5gi1"]
 
 [ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_l50eq"]
 [ext_resource type="Texture2D" uid="uid://dc6obubfo6ql4" path="res://assets/tiles/Walls_and_floor_F1.png" id="2_1uh8n"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://baoopc44csyry" path="res://assets/decoration/door's/DungeonMasterDoor_Open.png" id="7_ijqg3"]
 [ext_resource type="Texture2D" uid="uid://2ufgfawdliil" path="res://assets/tiles/Dungeon_Tileset_ocher.png" id="8_sfdc8"]
 [ext_resource type="Texture2D" uid="uid://cnyfrm736ecgv" path="res://assets/tiles/0x72_DungeonTilesetII_v1.7.png" id="9_e3yna"]
+[ext_resource type="PackedScene" uid="uid://2y2485tpxjpp" path="res://scenes/Background/Background.tscn" id="10_1swby"]
+[ext_resource type="PackedScene" uid="uid://bw6vq128rldl2" path="res://scenes/player/player.tscn" id="11_ugjna"]
+[ext_resource type="PackedScene" uid="uid://dstyim7k0wyo1" path="res://scenes/CameraPlayer/CameraPlayer.tscn" id="12_sonry"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3nll"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1swby"]
 resource_name = "WallsAndFloor_F1"
 texture = ExtResource("2_1uh8n")
 3:0/0 = 0
@@ -212,7 +215,7 @@ texture = ExtResource("2_1uh8n")
 0:9/0 = 0
 3:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxfa2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fpe8l"]
 resource_name = "Decorative_tile_F1"
 texture = ExtResource("3_54td3")
 0:0/0 = 0
@@ -374,7 +377,7 @@ texture = ExtResource("3_54td3")
 6:14/0 = 0
 7:14/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sy13b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugjna"]
 texture = ExtResource("4_mttfy")
 0:0/0 = 0
 5:0/0 = 0
@@ -462,11 +465,11 @@ texture = ExtResource("4_mttfy")
 [sub_resource type="TileSet" id="TileSet_nlkc8"]
 tile_offset_axis = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_b3nll")
-sources/1 = SubResource("TileSetAtlasSource_yxfa2")
-sources/3 = SubResource("TileSetAtlasSource_sy13b")
+sources/0 = SubResource("TileSetAtlasSource_1swby")
+sources/1 = SubResource("TileSetAtlasSource_fpe8l")
+sources/3 = SubResource("TileSetAtlasSource_ugjna")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vevkn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sonry"]
 texture = ExtResource("4_b3nll")
 3:2/0 = 0
 4:2/0 = 0
@@ -522,7 +525,7 @@ texture = ExtResource("4_b3nll")
 5:9/0 = 0
 6:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1swby"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iiayj"]
 texture = ExtResource("6_jfkw5")
 3:2/0 = 0
 4:2/0 = 0
@@ -576,7 +579,7 @@ texture = ExtResource("6_jfkw5")
 5:9/0 = 0
 6:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fpe8l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8160"]
 texture = ExtResource("7_ijqg3")
 3:2/0 = 0
 4:2/0 = 0
@@ -631,11 +634,11 @@ texture = ExtResource("7_ijqg3")
 6:9/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_b3nll"]
-sources/0 = SubResource("TileSetAtlasSource_vevkn")
-sources/1 = SubResource("TileSetAtlasSource_1swby")
-sources/3 = SubResource("TileSetAtlasSource_fpe8l")
+sources/0 = SubResource("TileSetAtlasSource_sonry")
+sources/1 = SubResource("TileSetAtlasSource_iiayj")
+sources/3 = SubResource("TileSetAtlasSource_q8160")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mitn4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tn1mm"]
 texture = ExtResource("8_sfdc8")
 0:0/0 = 0
 1:0/0 = 0
@@ -720,7 +723,7 @@ texture = ExtResource("8_sfdc8")
 6:6/0 = 0
 7:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5wwg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbcym"]
 texture = ExtResource("9_e3yna")
 1:0/0 = 0
 2:0/0 = 0
@@ -1354,10 +1357,12 @@ texture = ExtResource("9_e3yna")
 3:16/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_prryi"]
-sources/0 = SubResource("TileSetAtlasSource_mitn4")
-sources/4 = SubResource("TileSetAtlasSource_i5wwg")
+sources/0 = SubResource("TileSetAtlasSource_tn1mm")
+sources/4 = SubResource("TileSetAtlasSource_tbcym")
 
 [node name="Lobby" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("10_1swby")]
 
 [node name="black_base" type="Sprite2D" parent="."]
 position = Vector2(1728, 972)
@@ -1378,3 +1383,9 @@ tile_set = SubResource("TileSet_b3nll")
 [node name="regular_door" type="TileMapLayer" parent="."]
 scale = Vector2(2.22, 2.22)
 tile_set = SubResource("TileSet_prryi")
+
+[node name="Player" parent="." instance=ExtResource("11_ugjna")]
+position = Vector2(1986, 900)
+
+[node name="CameraPlayer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("12_sonry")]
+player = NodePath("../Player")

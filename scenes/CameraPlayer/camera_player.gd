@@ -6,7 +6,7 @@ extends Camera2D
 func _ready() -> void:
 	update_position()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	update_position()
 
 func update_position() -> void:
