@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dj0ith6ejb0bh"]
+[gd_scene load_steps=11 format=4 uid="uid://dj0ith6ejb0bh"]
 
 [ext_resource type="Texture2D" uid="uid://ddakgaqti2x3o" path="res://assets/background_black/background_black.png" id="1_7hipx"]
 [ext_resource type="TileSet" uid="uid://b5hhivf3bqlf4" path="res://misc/tile_set/dungeon_tile_set.tres" id="2_4s5u3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3nvlkxir7mjh" path="res://scenes/enemies/NightBorn/night_born.tscn" id="6_eokde"]
 [ext_resource type="PackedScene" uid="uid://citq7cmjf5n66" path="res://scenes/enemies/goblin/goblin.tscn" id="6_j81xe"]
 [ext_resource type="PackedScene" uid="uid://jgithblteyuw" path="res://scenes/canvas/hud_life.tscn" id="7_ulyey"]
+[ext_resource type="PackedScene" uid="uid://buor4yto3semo" path="res://scenes/enemies/orc/orc.tscn" id="9_qvykx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_eokde"]
 vertices = PackedVector2Array(921.031, -89.0938, 922.953, 385.961, -65.9063, 382.031, -62.0703, -98.8984)
@@ -55,18 +56,22 @@ script = ExtResource("4_ds0u5")
 player = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(148, 822)
 navigation_polygon = SubResource("NavigationPolygon_eokde")
 
 [node name="NavigationRegion2D3" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(1300, 817)
 navigation_polygon = SubResource("NavigationPolygon_eokde")
 
 [node name="NavigationRegion2D4" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(1295, 169)
 navigation_polygon = SubResource("NavigationPolygon_eokde")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(146, 174)
 navigation_polygon = SubResource("NavigationPolygon_eokde")
 
@@ -74,15 +79,19 @@ navigation_polygon = SubResource("NavigationPolygon_eokde")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_gr3xe")]
 unique_name_in_owner = true
-position = Vector2(528, 988)
+position = Vector2(552, 506)
 
 [node name="goblin" parent="." instance=ExtResource("6_j81xe")]
 position = Vector2(929, 778)
 
 [node name="NightBorn" parent="." instance=ExtResource("6_eokde")]
-position = Vector2(1361, 138)
+position = Vector2(863, 126)
 scale = Vector2(5, 5)
 
 [node name="SlimeGirl" parent="." instance=ExtResource("5_4s5u3")]
 position = Vector2(148, 822)
+scale = Vector2(2, 2)
+
+[node name="orc" parent="." instance=ExtResource("9_qvykx")]
+position = Vector2(148, 120)
 scale = Vector2(2, 2)
