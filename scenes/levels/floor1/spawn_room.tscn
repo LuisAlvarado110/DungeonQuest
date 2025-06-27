@@ -1417,7 +1417,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("8_vien3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockN"]
-position = Vector2(0, 25)
+position = Vector2(134, -61)
 shape = SubResource("RectangleShape2D_gbp01")
 
 [node name="LockS" type="CharacterBody2D" parent="."]
@@ -1499,6 +1499,7 @@ position = Vector2(24.5, 0.25)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_te2fx")]
+visible = false
 offset_left = -3.0
 offset_top = -35.0
 offset_right = -3.0
