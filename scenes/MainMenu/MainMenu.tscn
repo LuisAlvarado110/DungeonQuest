@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://5cn67e2nkfsp"]
+[gd_scene load_steps=13 format=3 uid="uid://5cn67e2nkfsp"]
 
 [ext_resource type="Script" uid="uid://bfr0auxdy4n0" path="res://scenes/MainMenu/main_menu.gd" id="1_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://dproxh1v4dy6y" path="res://assets/background_title/title_bg.png" id="2_0qq82"]
 [ext_resource type="LabelSettings" uid="uid://duk7k8sfistd4" path="res://misc/label_settings/main_menu.tres" id="2_r8q81"]
 [ext_resource type="Texture2D" uid="uid://c7xgaou55t742" path="res://assets/ui/button_long_normal1.png" id="3_7j8ul"]
 [ext_resource type="Texture2D" uid="uid://cv6hip7w7tkwa" path="res://assets/ui/button_long_pressed1.png" id="4_0qq82"]
+[ext_resource type="Texture2D" uid="uid://bsc8nxconrats" path="res://assets/ui/button_long_normal2.png" id="4_oy0qi"]
+[ext_resource type="Texture2D" uid="uid://ci4jgcoypagry" path="res://assets/ui/button_long_pressed2.png" id="5_bfo1e"]
 [ext_resource type="Texture2D" uid="uid://clm566llytvbh" path="res://assets/ui/button_long_hover1.png" id="5_y5ja3"]
 [ext_resource type="FontFile" uid="uid://dey1pgc2v5q2v" path="res://assets/fonts/DungeonFont.ttf" id="6_mqas3"]
+[ext_resource type="Texture2D" uid="uid://d1m7op28ebpdh" path="res://assets/ui/button_long_hover2.png" id="6_yv4eq"]
 [ext_resource type="Script" uid="uid://ddcgraf2ylctx" path="res://scenes/MainMenu/lvl_gt_button.gd" id="7_0qq82"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oy0qi"]
@@ -43,10 +46,10 @@ custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-texture_normal = ExtResource("3_7j8ul")
-texture_pressed = ExtResource("4_0qq82")
-texture_hover = ExtResource("5_y5ja3")
-texture_focused = ExtResource("5_y5ja3")
+texture_normal = ExtResource("4_oy0qi")
+texture_pressed = ExtResource("5_bfo1e")
+texture_hover = ExtResource("6_yv4eq")
+texture_focused = ExtResource("6_yv4eq")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("7_0qq82")
@@ -80,7 +83,6 @@ texture_hover = ExtResource("5_y5ja3")
 texture_focused = ExtResource("5_y5ja3")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("7_0qq82")
 
 [node name="Label" type="Label" parent="VBoxContainer/LvlGTButton"]
 layout_mode = 1
